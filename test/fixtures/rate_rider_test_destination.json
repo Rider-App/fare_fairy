@@ -1,0 +1,84 @@
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "514",
+               "short_name" : "514",
+               "types" : [ "street_number" ]
+            },
+            {
+               "long_name" : "West Pettigrew Street",
+               "short_name" : "W Pettigrew St",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Downtown",
+               "short_name" : "Downtown",
+               "types" : [ "neighborhood", "political" ]
+            },
+            {
+               "long_name" : "Durham",
+               "short_name" : "Durham",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Durham",
+               "short_name" : "Durham",
+               "types" : [ "administrative_area_level_3", "political" ]
+            },
+            {
+               "long_name" : "Durham County",
+               "short_name" : "Durham County",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "North Carolina",
+               "short_name" : "NC",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "United States",
+               "short_name" : "US",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "27701",
+               "short_name" : "27701",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "514 W Pettigrew St, Durham, NC 27701, USA",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 35.9969742,
+                  "lng" : -78.9066886
+               },
+               "southwest" : {
+                  "lat" : 35.9969618,
+                  "lng" : -78.90669939999999
+               }
+            },
+            "location" : {
+               "lat" : 35.9969742,
+               "lng" : -78.9066886
+            },
+            "location_type" : "RANGE_INTERPOLATED",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 35.99831698029149,
+                  "lng" : -78.90534501970849
+               },
+               "southwest" : {
+                  "lat" : 35.9956190197085,
+                  "lng" : -78.9080429802915
+               }
+            }
+         },
+         "place_id" : "Eik1MTQgVyBQZXR0aWdyZXcgU3QsIER1cmhhbSwgTkMgMjc3MDEsIFVTQQ",
+         "types" : [ "street_address" ]
+      }
+   ],
+   "status" : "OK"
+}

@@ -1,0 +1,79 @@
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "1214",
+               "short_name" : "1214",
+               "types" : [ "street_number" ]
+            },
+            {
+               "long_name" : "Broad Street",
+               "short_name" : "Broad St",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Watts Hospital-Hillandale",
+               "short_name" : "Watts Hospital-Hillandale",
+               "types" : [ "neighborhood", "political" ]
+            },
+            {
+               "long_name" : "Durham",
+               "short_name" : "Durham",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Durham",
+               "short_name" : "Durham",
+               "types" : [ "administrative_area_level_3", "political" ]
+            },
+            {
+               "long_name" : "Durham County",
+               "short_name" : "Durham County",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "North Carolina",
+               "short_name" : "NC",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "United States",
+               "short_name" : "US",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "27705",
+               "short_name" : "27705",
+               "types" : [ "postal_code" ]
+            },
+            {
+               "long_name" : "3574",
+               "short_name" : "3574",
+               "types" : [ "postal_code_suffix" ]
+            }
+         ],
+         "formatted_address" : "1214 Broad St, Durham, NC 27705, USA",
+         "geometry" : {
+            "location" : {
+               "lat" : 36.0182578,
+               "lng" : -78.91870249999999
+            },
+            "location_type" : "ROOFTOP",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 36.0196067802915,
+                  "lng" : -78.9173535197085
+               },
+               "southwest" : {
+                  "lat" : 36.0169088197085,
+                  "lng" : -78.92005148029151
+               }
+            }
+         },
+         "place_id" : "ChIJ5_r7vvrjrIkR0Wf48x6zQ0E",
+         "types" : [ "street_address" ]
+      }
+   ],
+   "status" : "OK"
+}
