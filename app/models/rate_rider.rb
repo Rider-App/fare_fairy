@@ -1,5 +1,5 @@
 class RateRider
-  attr_reader :response, :start_lat, :start_lng, :end_lat, :end_lng, :origin, :destination
+  attr_reader :response, :origin, :destination, :travel_options
 
   def initialize(origin, destination)
     @origin_response = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{origin}")
@@ -7,7 +7,7 @@ class RateRider
     @destination_response = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{destination}")
     @destination = location_coordinates(@destination_response)
 
-    @response = get_transit_data
+    @travel_options = get_transit_data
   end
 
   def get_transit_data

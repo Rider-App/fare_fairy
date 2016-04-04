@@ -9,6 +9,7 @@ class RateRider
     @origin = location_coordinates(@origin_response)
     @destination = location_coordinates(@destination_response)
 
+    @travel_options = get_transit_data
   end
 end
 
@@ -31,6 +32,11 @@ class RateRiderTest < ActiveSupport::TestCase
   test "can return a destination address" do
     rate_rider = RateRider.new
     assert_equal "514 W Pettigrew St, Durham, NC 27701, USA", rate_rider.destination_address
+  end
+
+  test "can get travel options" do
+    r = RateRider.new
+    assert_equal Transit, r.travel_options.first.class
   end
 
 end
