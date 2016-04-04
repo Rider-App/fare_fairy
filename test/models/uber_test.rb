@@ -19,4 +19,14 @@ class UberTest < ActiveSupport::TestCase
     assert_equal 37, uber.price_min
   end
 
+  test "uber price max" do
+    uber = Uber.new
+    assert_equal 79, uber.price_max
+  end
+
+  test "uber eta" do
+    uber = Uber.new
+    assert_equal 5, uber.eta
+  end
+
 end

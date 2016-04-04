@@ -33,6 +33,6 @@ class Uber
       min_array << t["estimate"]
     end
     eta = (min_array.min)/60
-
   end
+  
 end
