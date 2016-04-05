@@ -29,6 +29,7 @@ class Uber < Transit
 
   def eta
     etas = self.options.map {|e| e[:total_eta]}
+    etas = etas.select {|a| a.class == Fixnum}
     etas.min
   end
 
@@ -58,7 +59,11 @@ class Uber < Transit
       end
 
       option_hash[:transit_time] = (p["duration"]/60)
-      option_hash[:total_eta] = option_hash[:pickup_eta].to_i + option_hash[:transit_time].to_i
+      if option_hash[:pickup_eta] != "No cars available"
+        option_hash[:total_eta] = option_hash[:pickup_eta].to_i + option_hash[:transit_time].to_i
+      else
+        option_hash[:total_eta] = "No cars available"
+      end
 
       options_array << option_hash
     end
