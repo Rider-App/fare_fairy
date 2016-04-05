@@ -1,4 +1,4 @@
-class GoogleTransit
+class GoogleTransit < Transit
   attr_reader :response
 
   def initialize(origin, destination)
