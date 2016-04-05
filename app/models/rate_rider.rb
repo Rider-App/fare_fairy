@@ -12,7 +12,6 @@ class RateRider
 
   def get_transit_data
     options = []
-    options << Transit.new(@origin, @destination)
   end
 
   def formatted_addresses(response)

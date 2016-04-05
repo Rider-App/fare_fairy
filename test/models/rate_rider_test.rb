@@ -34,9 +34,5 @@ class RateRiderTest < ActiveSupport::TestCase
     assert_equal "514 W Pettigrew St, Durham, NC 27701, USA", rate_rider.destination_address
   end
 
-  test "can get travel options" do
-    r = RateRider.new
-    assert_equal Transit, r.travel_options.first.class
-  end
 
 end

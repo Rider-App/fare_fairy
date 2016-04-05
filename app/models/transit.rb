@@ -1,8 +1,39 @@
 class Transit
-  attr_reader :response
+  def initialize
 
-  def initialize(origin, destination)
-    @response = HTTParty.get("https://maps.googleapis.com/maps/api/directions/json?origin=#{origin}&destination=#{destination}&mode=transit&units=imperial&key=#{ENV["GOOGLE_MATRIX_KEY"]}")
   end
+
+  def travel_type
+    ""
+  end
+
+  def price_min
+    nil
+  end
+
+  def price_max
+    nil
+  end
+
+  def eta
+    nil
+  end
+
+  def special_considerations
+    "none"
+  end
+
+  def route_map
+    ""
+  end
+
+  def nearest_pickup_point
+    ""
+  end
+
+  def start_journey_url
+    ""
+  end
+
 
 end
