@@ -34,4 +34,12 @@ class UberTest < ActiveSupport::TestCase
     assert_equal "surge pricing", uber.special_considerations
   end
 
+  test "uber options" do
+    uber = Uber.new
+    assert_equal "uberX", uber.options[0][:ride_name]
+    assert_equal 37, uber.options[1][:price_min]
+    assert_equal 66, uber.options[2][:price_max]
+    assert_equal 37, uber.options[1][:total_eta]
+  end
+
 end
