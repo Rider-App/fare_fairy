@@ -1,0 +1,292 @@
+{
+  "geocoded_waypoints": [
+    {
+      "geocoder_status": "OK",
+      "partial_match": true,
+      "place_id": "ChIJT5bgoKlZwokRQsKBUjlb2OQ",
+      "types": [
+        "street_address"
+      ]
+    },
+    {
+      "geocoder_status": "OK",
+      "place_id": "ChIJXeP5bq5bwokRUVoWuq40wEU",
+      "types": [
+        "street_address"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "bounds": {
+        "northeast": {
+          "lat": 40.7513409,
+          "lng": -73.9751658
+        },
+        "southwest": {
+          "lat": 40.6832923,
+          "lng": -74.001622
+        }
+      },
+      "copyrights": "Map data ©2016 Google",
+      "legs": [
+        {
+          "arrival_time": {
+            "text": "12:07pm",
+            "time_zone": "America/New_York",
+            "value": 1459872474
+          },
+          "departure_time": {
+            "text": "11:44am",
+            "time_zone": "America/New_York",
+            "value": 1459871073
+          },
+          "distance": {
+            "text": "5.4 mi",
+            "value": 8716
+          },
+          "duration": {
+            "text": "23 mins",
+            "value": 1401
+          },
+          "end_address": "620 Atlantic Ave, Brooklyn, NY 11217, USA",
+          "end_location": {
+            "lat": 40.6832923,
+            "lng": -73.9751658
+          },
+          "start_address": "250 W 34th St, New York, NY 10119, USA",
+          "start_location": {
+            "lat": 40.7513409,
+            "lng": -73.99138139999999
+          },
+          "steps": [
+            {
+              "distance": {
+                "text": "0.2 mi",
+                "value": 343
+              },
+              "duration": {
+                "text": "4 mins",
+                "value": 267
+              },
+              "end_location": {
+                "lat": 40.749567,
+                "lng": -73.98795
+              },
+              "html_instructions": "Walk to 34 Street - Herald Sq Station",
+              "polyline": {
+                "points": "{fvwFbmrbMJ[d@{AL_@Pe@~@wCRm@L_@hAkDd@wAVFd@M"
+              },
+              "start_location": {
+                "lat": 40.7513409,
+                "lng": -73.99138139999999
+              },
+              "steps": [
+                {
+                  "distance": {
+                    "text": "0.2 mi",
+                    "value": 329
+                  },
+                  "duration": {
+                    "text": "4 mins",
+                    "value": 252
+                  },
+                  "end_location": {
+                    "lat": 40.7498844,
+                    "lng": -73.9879826
+                  },
+                  "html_instructions": "Head <b>southeast</b> on <b>W 34th St</b> toward <b>Pearson Park</b>",
+                  "polyline": {
+                    "points": "{fvwFbmrbMJ[d@{AL_@Pe@~@wCRm@L_@hAkDd@wA"
+                  },
+                  "start_location": {
+                    "lat": 40.7513409,
+                    "lng": -73.99138139999999
+                  },
+                  "travel_mode": "WALKING"
+                },
+                {
+                  "distance": {
+                    "text": "46 ft",
+                    "value": 14
+                  },
+                  "duration": {
+                    "text": "1 min",
+                    "value": 15
+                  },
+                  "end_location": {
+                    "lat": 40.749567,
+                    "lng": -73.98795
+                  },
+                  "html_instructions": "Turn <b>right</b> onto <b>Broadway</b><div style=\"font-size:0.9em\">Destination will be on the left</div>",
+                  "maneuver": "turn-right",
+                  "polyline": {
+                    "points": "w}uwFzwqbMVFd@M"
+                  },
+                  "start_location": {
+                    "lat": 40.7498844,
+                    "lng": -73.9879826
+                  },
+                  "travel_mode": "WALKING"
+                }
+              ],
+              "travel_mode": "WALKING"
+            },
+            {
+              "distance": {
+                "text": "5.1 mi",
+                "value": 8182
+              },
+              "duration": {
+                "text": "17 mins",
+                "value": 990
+              },
+              "end_location": {
+                "lat": 40.68446,
+                "lng": -73.97689
+              },
+              "html_instructions": "Subway towards Coney Island - Stillwell Av",
+              "polyline": {
+                "points": "y{uwFtwqbMnXrC`LlAF@H@F@H@H?H@H@F@J?H@H@J?H@J@J?jG\\vCTH@H@H@H?H@H@F@J@H@H@F@JBH@H@H@hIvAH@J@HBF@H@H@H@H@F@HBF@H@F@F@H@pIfAdBTrRfCH@F@H@FBF@HBFBFBHBFDFDFDFDHDFD|E|Dnd@t^nZhVLHLHLDLDLBJ@J?L?JCJCHGJGHIJKHKzBmD|DeGFKDKFKFKDKDKFMDKDMDKDMDMBMDMBMfBkHBMBIDKBKDIBIDIDIDIDGDGFGDGDEFG|A}AFGFGHEFGFGHEFGFEHEFEHEFEHCHEFC|iBqz@xOmGxFkCdMaFvD_BlDuAhAc@JEHEJEHGHGHGHIFIHIFIFKDKFMDMDMbCmIhAmDBKBKDIDIDGDIDEFGDEFEFCFCHAFCH?~OiB"
+              },
+              "start_location": {
+                "lat": 40.749567,
+                "lng": -73.98795
+              },
+              "transit_details": {
+                "arrival_stop": {
+                  "location": {
+                    "lat": 40.68446,
+                    "lng": -73.97689
+                  },
+                  "name": "Atlantic Av - Barclays Ctr"
+                },
+                "arrival_time": {
+                  "text": "12:05pm",
+                  "time_zone": "America/New_York",
+                  "value": 1459872330
+                },
+                "departure_stop": {
+                  "location": {
+                    "lat": 40.749567,
+                    "lng": -73.98795
+                  },
+                  "name": "34 Street - Herald Sq Station"
+                },
+                "departure_time": {
+                  "text": "11:49am",
+                  "time_zone": "America/New_York",
+                  "value": 1459871340
+                },
+                "headsign": "Coney Island - Stillwell Av",
+                "line": {
+                  "agencies": [
+                    {
+                      "name": "MTA New York City Transit",
+                      "phone": "1 (718) 330-1234",
+                      "url": "http://www.mta.info/"
+                    }
+                  ],
+                  "color": "#ffc107",
+                  "icon": "//maps.gstatic.com/mapfiles/transit/iw2/6/us-ny-mta/Q.png",
+                  "name": "Broadway Express",
+                  "short_name": "Q",
+                  "url": "http://web.mta.info/nyct/service/pdf/tqcur.pdf",
+                  "vehicle": {
+                    "icon": "//maps.gstatic.com/mapfiles/transit/iw2/6/subway.png",
+                    "name": "Subway",
+                    "type": "SUBWAY"
+                  }
+                },
+                "num_stops": 4
+              },
+              "travel_mode": "TRANSIT"
+            },
+            {
+              "distance": {
+                "text": "0.1 mi",
+                "value": 191
+              },
+              "duration": {
+                "text": "2 mins",
+                "value": 144
+              },
+              "end_location": {
+                "lat": 40.6832923,
+                "lng": -73.9751658
+              },
+              "html_instructions": "Walk to 620 Atlantic Ave, Brooklyn, NY 11217, USA",
+              "polyline": {
+                "points": "{diwFprobMfAOJ?DB@?ZN@CBGDOV{@VgAR_@\\kCBO"
+              },
+              "start_location": {
+                "lat": 40.68446,
+                "lng": -73.97689
+              },
+              "steps": [
+                {
+                  "distance": {
+                    "text": "95 ft",
+                    "value": 29
+                  },
+                  "duration": {
+                    "text": "1 min",
+                    "value": 21
+                  },
+                  "end_location": {
+                    "lat": 40.6838571,
+                    "lng": -73.97691469999999
+                  },
+                  "html_instructions": "Head <b>south</b> toward <b>Atlantic Ave</b><div style=\"font-size:0.9em\">Take the stairs</div>",
+                  "polyline": {
+                    "points": "{diwFprobMfAOJ?DB@?ZN"
+                  },
+                  "start_location": {
+                    "lat": 40.68446,
+                    "lng": -73.97689
+                  },
+                  "travel_mode": "WALKING"
+                },
+                {
+                  "distance": {
+                    "text": "0.1 mi",
+                    "value": 162
+                  },
+                  "duration": {
+                    "text": "2 mins",
+                    "value": 123
+                  },
+                  "end_location": {
+                    "lat": 40.6832923,
+                    "lng": -73.9751658
+                  },
+                  "html_instructions": "Turn <b>left</b> onto <b>Atlantic Ave</b><div style=\"font-size:0.9em\">Destination will be on the right</div>",
+                  "maneuver": "turn-left",
+                  "polyline": {
+                    "points": "caiwFtrobM@CBGDOV{@VgAR_@\\kCBO"
+                  },
+                  "start_location": {
+                    "lat": 40.6838571,
+                    "lng": -73.97691469999999
+                  },
+                  "travel_mode": "WALKING"
+                }
+              ],
+              "travel_mode": "WALKING"
+            }
+          ],
+          "via_waypoint": []
+        }
+      ],
+      "overview_polyline": {
+        "points": "{fvwFbmrbMpA}DjDqKd@wAVFd@MnXrChLnAPBf@Df@Dl@BbLr@RBf@Df@FpKfBbd@bGb@H`@L`@TvFnE~_A~u@ZRZJXDX?VGTOTUjIkMZo@n@iBtBuIRk@Tg@X_@tCqCfAo@PI|iBqz@xOmGxFkCdMaFdJuDjBu@f@a@`@i@Xu@tEsOVe@ZY`@M|RyBb@Rb@wAVgAR_@`@{C"
+      },
+      "summary": "",
+      "warnings": [
+        "Walking directions are in beta.    Use caution – This route may be missing sidewalks or pedestrian paths."
+      ],
+      "waypoint_order": []
+    }
+  ],
+  "status": "OK"
+}
