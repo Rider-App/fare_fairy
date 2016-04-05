@@ -1,0 +1,16 @@
+{
+  "times": [
+    {
+      "localized_display_name": "uberX",
+      "estimate": 300,
+      "display_name": "uberX",
+      "product_id": "7f4c7355-03db-4d78-8fba-63ac4813ad77"
+    },
+    {
+      "localized_display_name": "uberXL",
+      "estimate": 300,
+      "display_name": "uberXL",
+      "product_id": "37f827f9-0ea3-49af-961e-62e304330dd0"
+    }
+  ]
+}
