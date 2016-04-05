@@ -5,12 +5,6 @@ class Lyft
 
   def initialize(start_lat, start_lng, end_lat, end_lng)
 
-    # HOW DO WE GET THE LAT & LNG IN?
-    # start_lat = 37.7772
-    # start_lng = -122.4233
-    # end_lat = 37.7972
-    # end_lng = -122.4533
-
     @auth_response = HTTParty.post("https://api.lyft.com/oauth/token",
       {
         headers: {"Content-Type": "application/json"},
@@ -58,6 +52,17 @@ class Lyft
     @cost_response["cost_estimates"].map {|response| duration_hash["#{response["ride_type"]}"] = response["estimated_duration_seconds"]}
     eta_hash.merge!(duration_hash){|key, eta, duration| eta + duration}
     convert_time(eta_hash.values.min)
+    # eta_array = @eta_response["eta_estimates"]
+    # duration_array = @cost_response["cost_estimates"]
+#
+    # hash = {}
+    # eta_array.each do |e|
+    #   duration_array.each do |d|
+    #     if e["ride_type"] == d["ride_type"]
+    #       e["eta_seconds"] + d["estimated_duration_seconds"]
+    #     end
+    #   end
+    # end
   end
 
   def primetime_multiplier
@@ -80,25 +85,17 @@ class Lyft
       options_hash["ride_name"] = r["display_name"]
       options_hash["price_min"] = convert_price(r["estimated_cost_cents_min"])
       options_hash["price_max"] = convert_price(r["estimated_cost_cents_max"])
-      # options_hash["pickup_eta"]
+      @eta_response["eta_estimates"].each do |e|
+        if e["ride_type"] == r["ride_type"]
+          options_hash["pickup_eta"] = convert_time(e["eta_seconds"])
+          break
+        end
+      end
       options_hash["transit_time"] = convert_time(r["estimated_duration_seconds"])
-      # options_hash["total_eta"] = r[]
+      options_hash["total_eta"] = options_hash["pickup_eta"] + options_hash["transit_time"]
       options << options_hash
     end
     options
   end
-
-
-
-
-              #  {
-              #
-              #
-              #    "pickup_eta": 3,
-              #    "transit_time": 17,
-              #    "total_eta": 20
-              #  }
-
-
 
 end

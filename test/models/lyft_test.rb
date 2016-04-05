@@ -48,15 +48,11 @@ class LyftTest < ActiveSupport::TestCase
 
   test "can get options" do
     l = Lyft.new
-    assert_equal '[
-               {
-                 "ride_name": "Lyft Plus",
-                 "price_min": 8,
-                 "price_max": 15,
-                 "pickup_eta": 3,
-                 "transit_time": 17,
-                 "total_eta": 20
-               } ]', l.options
+    assert_equal "Lyft", l.options[0]["ride_name"]
+    assert_equal 20, l.options[0]["total_eta"]
+    assert_equal 6, l.options[0]["pickup_eta"]
+    assert_equal 14, l.options[1]["transit_time"]
+    assert_equal 7.14, l.options[2]["price_max"]
   end
 
   # test "can get start journey URL" do
