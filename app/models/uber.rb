@@ -34,5 +34,13 @@ class Uber
     end
     eta = (min_array.min)/60
   end
-  
+
+  def special_considerations
+    surge_pricing = false
+    @prices["prices"].each do |p|
+      surge_pricing = true if p["surge_multiplier"] > 1
+    end
+    surge_pricing ? "surge pricing" : "none"
+  end
+
 end

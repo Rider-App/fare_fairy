@@ -29,4 +29,9 @@ class UberTest < ActiveSupport::TestCase
     assert_equal 5, uber.eta
   end
 
+  test "uber special considerations" do
+    uber = Uber.new
+    assert_equal "surge pricing", uber.special_considerations
+  end
+
 end
