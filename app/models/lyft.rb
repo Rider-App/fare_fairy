@@ -11,7 +11,7 @@ class Lyft
     # end_lat = 37.7972
     # end_lng = -122.4533
 
-    @auth_object = HTTParty.post("https://api.lyft.com/oauth/token",
+    @auth_response = HTTParty.post("https://api.lyft.com/oauth/token",
       {
         headers: {"Content-Type": "application/json"},
         body: {"grant_type": "client_credentials", "scope": "public"},
@@ -19,9 +19,9 @@ class Lyft
           }
             )
 
-    @token = @auth_object["access_token"]
+    @token = @auth_response["access_token"]
 
-    @cost = HTTParty.get("https://api.lyft.com/v1/cost?start_lat=37.7772&start_lng=-122.4233&end_lat=37.7972&end_lng=-122.4533",
+    @cost_response = HTTParty.get("https://api.lyft.com/v1/cost?start_lat=37.7772&start_lng=-122.4233&end_lat=37.7972&end_lng=-122.4533",
             {headers: {"Authorization": "bearer #{@token}"} } )
 
   end
