@@ -43,4 +43,28 @@ class Uber
     surge_pricing ? "surge pricing" : "none"
   end
 
+  def options
+    options_array = []
+    @prices["prices"].each do |p|
+      ride_name = p["display_name"]
+      option_hash = { ride_name: p["display_name"],
+                      price_min: p["low_estimate"],
+                      price_max: p["high_estimate"]}
+
+      @times["times"].each do |t|
+        if t["display_name"] == ride_name
+          option_hash[:pickup_eta] = (t["estimate"]/60)
+          break
+        else
+          option_hash[:pickup_eta] = "No cars available"
+        end
+      end
+
+      option_hash[:transit_time] = (p["duration"]/60)
+      option_hash[:total_eta] = option_hash[:pickup_eta].to_i + option_hash[:transit_time].to_i
+
+      options_array << option_hash
+    end
+    options_array
+  end
 end
