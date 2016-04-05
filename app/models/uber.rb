@@ -28,17 +28,8 @@ class Uber < Transit
   end
 
   def eta
-    min_array=[]
-    @times["times"].each do |t|
-      @prices["prices"].each do |p|
-        if t["display_name"] == p["display_name"]
-          total_eta = t["estimate"] + p["duration"]
-          min_array << total_eta
-          break
-        end
-      end
-    end
-    eta = (min_array.min)/60
+    etas = self.options.map {|e| e[:total_eta]}
+    etas.min
   end
 
   def special_considerations
