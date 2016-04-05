@@ -1,4 +1,4 @@
-class Uber
+class Uber < Transit
   attr_reader :prices, :times
 
   def initialize(origin_latitude=nil, origin_longitude=nil, destination_latitude=nil, destination_longitude=nil)
@@ -30,7 +30,13 @@ class Uber
   def eta
     min_array=[]
     @times["times"].each do |t|
-      min_array << t["estimate"]
+      @prices["prices"].each do |p|
+        if t["display_name"] == p["display_name"]
+          total_eta = t["estimate"] + p["duration"]
+          min_array << total_eta
+          break
+        end
+      end
     end
     eta = (min_array.min)/60
   end
