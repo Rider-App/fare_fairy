@@ -33,14 +33,22 @@ class Lyft
     "lyft"
   end
 
+  def convert_price(amount)
+    (amount / 100.0) * primetime_multiplier
+  end
+
+  def convert_time(time_in_sec)
+    (time_in_sec / 60.0).round
+  end
+
   def price_min
     min_array = @cost_response["cost_estimates"].map {|response| response["estimated_cost_cents_min"]}
-    ((min_array.min)/100.0) * primetime_multiplier
+    convert_price(min_array.min)
   end
 
   def price_max
     max_array = @cost_response["cost_estimates"].map {|response| response["estimated_cost_cents_max"]}
-    ((max_array.max)/100.0) * primetime_multiplier
+    convert_price(max_array.max)
   end
 
   def eta
@@ -49,7 +57,7 @@ class Lyft
     duration_hash = {}
     @cost_response["cost_estimates"].map {|response| duration_hash["#{response["ride_type"]}"] = response["estimated_duration_seconds"]}
     eta_hash.merge!(duration_hash){|key, eta, duration| eta + duration}
-    ((eta_hash.values.min)/60.0).round
+    convert_time(eta_hash.values.min)
   end
 
   def primetime_multiplier
@@ -64,6 +72,33 @@ class Lyft
       "Prime time"
     end
   end
+
+  def options
+    options = []
+    @cost_response["cost_estimates"].each do |r|
+      options_hash = {}
+      options_hash["ride_name"] = r["display_name"]
+      options_hash["price_min"] = convert_price(r["estimated_cost_cents_min"])
+      options_hash["price_max"] = convert_price(r["estimated_cost_cents_max"])
+      # options_hash["pickup_eta"]
+      options_hash["transit_time"] = convert_time(r["estimated_duration_seconds"])
+      # options_hash["total_eta"] = r[]
+      options << options_hash
+    end
+    options
+  end
+
+
+
+
+              #  {
+              #
+              #
+              #    "pickup_eta": 3,
+              #    "transit_time": 17,
+              #    "total_eta": 20
+              #  }
+
 
 
 end

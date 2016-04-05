@@ -46,15 +46,19 @@ class LyftTest < ActiveSupport::TestCase
     assert_equal "None", l.special_considerations
   end
 
-  # test "can get root map" do
-  # end
-  #
-  # test "can get nearest pickup point" do
-  # end
-  #
-  # test "can get options" do
-  # end
-  #
+  test "can get options" do
+    l = Lyft.new
+    assert_equal '[
+               {
+                 "ride_name": "Lyft Plus",
+                 "price_min": 8,
+                 "price_max": 15,
+                 "pickup_eta": 3,
+                 "transit_time": 17,
+                 "total_eta": 20
+               } ]', l.options
+  end
+
   # test "can get start journey URL" do
   # end
   #
