@@ -26,6 +26,10 @@ class Lyft
 
   end
 
+  def travel_type
+    "lyft" 
+  end
+
 
 ##########
 # HTTPARTY: require 'httparty' => false

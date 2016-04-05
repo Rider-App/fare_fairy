@@ -10,7 +10,7 @@
       "estimated_distance_miles": 3.28,
       "primetime_confirmation_token": null,
       "primetime_percentage": "0%"
-    }
+    },
     {
       "ride_type": "lyft_plus",
       "display_name": "Lyft Plus",
@@ -32,6 +32,6 @@
       "estimated_distance_miles": 3.28,
       "primetime_confirmation_token": null,
       "primetime_percentage": "0%"
-    },
+    }
   ]
 }
