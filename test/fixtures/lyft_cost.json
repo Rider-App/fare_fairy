@@ -1,0 +1,37 @@
+{
+  "cost_estimates": [
+    {
+      "ride_type": "lyft",
+      "display_name": "Lyft",
+      "currency": "USD",
+      "estimated_cost_cents_min": 980,
+      "estimated_cost_cents_max": 1326,
+      "estimated_duration_seconds": 811,
+      "estimated_distance_miles": 3.28,
+      "primetime_confirmation_token": null,
+      "primetime_percentage": "0%"
+    },
+    {
+      "ride_type": "lyft_plus",
+      "display_name": "Lyft Plus",
+      "currency": "USD",
+      "estimated_cost_cents_min": 1441,
+      "estimated_cost_cents_max": 1951,
+      "estimated_duration_seconds": 811,
+      "estimated_distance_miles": 3.28,
+      "primetime_confirmation_token": null,
+      "primetime_percentage": "0%"
+    },
+    {
+      "ride_type": "lyft_line",
+      "display_name": "Lyft Line",
+      "currency": "USD",
+      "estimated_cost_cents_min": 714,
+      "estimated_cost_cents_max": 714,
+      "estimated_duration_seconds": 811,
+      "estimated_distance_miles": 3.28,
+      "primetime_confirmation_token": null,
+      "primetime_percentage": "0%"
+    }
+  ]
+}

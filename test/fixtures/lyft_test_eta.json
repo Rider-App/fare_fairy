@@ -1,0 +1,7 @@
+{
+  "eta_estimates": [
+    {"ride_type": "lyft_plus", "eta_seconds": 941},
+    {"ride_type": "lyft_line", "eta_seconds": 370},
+    {"ride_type": "lyft", "eta_seconds": 370}
+  ]
+}
