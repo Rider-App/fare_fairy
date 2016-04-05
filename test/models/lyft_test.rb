@@ -23,7 +23,7 @@ class LyftTest < ActiveSupport::TestCase
 
   test "travel type" do
     l = Lyft.new
-    assert_equal "lyft", l.travel_type
+    assert_equal "Lyft", l.travel_type
   end
 
   test "price_min" do

@@ -1,17 +1,13 @@
-class Lyft
-  # require 'httparty'
-
-  attr_reader :cost, :auth_object, :token
+class Lyft < Transit
+  attr_reader :token
 
   def initialize(start_lat, start_lng, end_lat, end_lng)
 
     @auth_response = HTTParty.post("https://api.lyft.com/oauth/token",
-      {
-        headers: {"Content-Type": "application/json"},
+      { headers: {"Content-Type": "application/json"},
         body: {"grant_type": "client_credentials", "scope": "public"},
         basic_auth: { username: "#{ENV["LYFT_ID"]}", password: "#{ENV["LYFT_SECRET"]}"}
-          }
-            )
+      })
 
     @token = @auth_response["access_token"]
 
@@ -24,7 +20,7 @@ class Lyft
   end
 
   def travel_type
-    "lyft"
+    "Lyft"
   end
 
   def convert_price(amount)
