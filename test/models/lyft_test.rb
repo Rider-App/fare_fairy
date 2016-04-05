@@ -4,13 +4,12 @@ require "#{Rails.root}/app/models/lyft.rb"
 class Lyft
   def initialize
 
-
     @auth_response = JSON.parse(File.read("#{Rails.root}/test/fixtures/lyft_test_auth.json"))
     @token = @auth_response["access_token"]
 
     @cost_response = JSON.parse(File.read("#{Rails.root}/test/fixtures/lyft_cost.json"))
 
-
+    @eta_response = JSON.parse(File.read("#{Rails.root}/test/fixtures/lyft_test_eta.json"))
 
   end
 end
@@ -37,15 +36,16 @@ class LyftTest < ActiveSupport::TestCase
     assert_equal 19.51, l.price_max
   end
 
-  # test "assert ride ETA" do
-  # end
-  #
-  # test "can get details" do
-  # end
-  #
-  # test "can get special considerations" do
-  # end
-  #
+  test "assert ride ETA" do
+    l = Lyft.new
+    assert_equal 20, l.eta
+  end
+
+  test "can get special considerations" do
+    l = Lyft.new
+    assert_equal "None", l.special_considerations
+  end
+
   # test "can get root map" do
   # end
   #
@@ -72,6 +72,5 @@ class LyftTest < ActiveSupport::TestCase
   #
   # test "can get total ETA" do
   # end
-
 
 end
