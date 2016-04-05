@@ -26,7 +26,7 @@ class UberTest < ActiveSupport::TestCase
 
   test "uber eta" do
     uber = Uber.new
-    assert_equal 5, uber.eta
+    assert_equal 32, uber.eta
   end
 
   test "uber special considerations" do
