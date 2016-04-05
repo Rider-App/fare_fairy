@@ -43,7 +43,7 @@ class LyftTest < ActiveSupport::TestCase
 
   test "can get special considerations" do
     l = Lyft.new
-    assert_equal "None", l.special_considerations
+    assert_equal "none", l.special_considerations
   end
 
   test "can get options" do

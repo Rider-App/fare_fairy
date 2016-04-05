@@ -46,23 +46,16 @@ class Lyft
   end
 
   def eta
-    eta_hash = {}
-    @eta_response["eta_estimates"].map {|response| eta_hash["#{response["ride_type"]}"] = response["eta_seconds"]}
-    duration_hash = {}
-    @cost_response["cost_estimates"].map {|response| duration_hash["#{response["ride_type"]}"] = response["estimated_duration_seconds"]}
-    eta_hash.merge!(duration_hash){|key, eta, duration| eta + duration}
-    convert_time(eta_hash.values.min)
+    etas = self.options.map {|e| e["total_eta"]}
+    etas.min
+    # eta_hash = {}
+    # @eta_response["eta_estimates"].map {|response| eta_hash["#{response["ride_type"]}"] = response["eta_seconds"]}
+    # duration_hash = {}
+    # @cost_response["cost_estimates"].map {|response| duration_hash["#{response["ride_type"]}"] = response["estimated_duration_seconds"]}
+    # eta_hash.merge!(duration_hash){|key, eta, duration| eta + duration}
+    # convert_time(eta_hash.values.min)
     # eta_array = @eta_response["eta_estimates"]
     # duration_array = @cost_response["cost_estimates"]
-#
-    # hash = {}
-    # eta_array.each do |e|
-    #   duration_array.each do |d|
-    #     if e["ride_type"] == d["ride_type"]
-    #       e["eta_seconds"] + d["estimated_duration_seconds"]
-    #     end
-    #   end
-    # end
   end
 
   def primetime_multiplier
@@ -71,11 +64,7 @@ class Lyft
   end
 
   def special_considerations
-    if primetime_multiplier == 1
-      "None"
-    else
-      "Prime time"
-    end
+    primetime_multiplier == 1 ? "none" : "prime time"
   end
 
   def options
