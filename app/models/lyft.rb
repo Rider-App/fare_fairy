@@ -35,12 +35,12 @@ class Lyft
 
   def price_min
     min_array = @cost_response["cost_estimates"].map {|response| response["estimated_cost_cents_min"]}
-    (min_array.min)/100.0
+    ((min_array.min)/100.0) * primetime_multiplier
   end
 
   def price_max
     max_array = @cost_response["cost_estimates"].map {|response| response["estimated_cost_cents_max"]}
-    (max_array.max)/100.0
+    ((max_array.max)/100.0) * primetime_multiplier
   end
 
   def eta
