@@ -38,15 +38,15 @@ class TransitTest < ActiveSupport::TestCase
     assert_equal "", t.nearest_pickup_point
   end
 
-  # test "can get options" do
-  #   t = Transit.new
-  #   assert_equal {"ride_name": "",
-  #   "price_min": nil,
-  #   "price_max": nil,
-  #   "pickup_eta": nil,
-  #   "transit_time": nil,
-  #   "total_eta": nil}, t.options
-  # end
+  test "can get options" do
+    t = Transit.new
+    assert_equal '{"ride_name": "",
+    "price_min": nil,
+    "price_max": nil,
+    "pickup_eta": nil,
+    "transit_time": nil,
+    "total_eta": nil}', t.options
+  end
 
   test "can get start journey url" do
     t = Transit.new

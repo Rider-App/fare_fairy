@@ -35,5 +35,14 @@ class Transit
     ""
   end
 
+  def options
+    '{"ride_name": "",
+    "price_min": nil,
+    "price_max": nil,
+    "pickup_eta": nil,
+    "transit_time": nil,
+    "total_eta": nil}'
+  end
+
 
 end
