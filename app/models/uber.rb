@@ -4,7 +4,7 @@ class Uber
   def initialize(origin_latitude=nil, origin_longitude=nil, destination_latitude=nil, destination_longitude=nil)
       header = {"Authorization" => "Token #{ENV["UBER_TOKEN"]}"}
       @prices = HTTParty.get("https://api.uber.com/v1/estimates/price?start_latitude=#{origin_latitude}&start_longitude=#{origin_longitude}&end_latitude=#{destination_latitude}&end_longitude=#{destination_longitude}", headers: header)
-      @times = HTTParty.get("https://api.uber.com/v1/estimates/price?start_latitude=#{origin_latitude}&start_longitude=#{origin_longitude}", headers: header)
+      @times = HTTParty.get("https://api.uber.com/v1/estimates/time?start_latitude=#{origin_latitude}&start_longitude=#{origin_longitude}", headers: header)
   end
 
   def travel_type

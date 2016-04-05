@@ -12,6 +12,8 @@ class RateRider
 
   def get_transit_data
     options = []
+    uber = Uber.new(start_lat, start_lng, end_lat, end_lng)
+    options << uber
   end
 
   def formatted_addresses(response)
