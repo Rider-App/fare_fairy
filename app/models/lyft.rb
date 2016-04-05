@@ -3,7 +3,7 @@ class Lyft
 
   attr_reader :cost, :auth_object, :token
 
-  def initialize
+  def initialize(start_lat, start_lng, end_lat, end_lng)
 
     # HOW DO WE GET THE LAT & LNG IN?
     # start_lat = 37.7772
@@ -21,22 +21,23 @@ class Lyft
 
     @token = @auth_response["access_token"]
 
-    @cost_response = HTTParty.get("https://api.lyft.com/v1/cost?start_lat=37.7772&start_lng=-122.4233&end_lat=37.7972&end_lng=-122.4533",
+    @cost_response = HTTParty.get("https://api.lyft.com/v1/cost?start_lat=#{start_lat}&start_lng=#{start_lng}&end_lat=#{end_lat}&end_lng=#{end_lng}",
             {headers: {"Authorization": "bearer #{@token}"} } )
 
   end
 
   def travel_type
-    "lyft" 
+    "lyft"
   end
 
+  def price_min
+    min_array = @cost_response["cost_estimates"].map {|response| response["estimated_cost_cents_min"]}
+    (min_array.min)/100.0
+  end
 
-##########
-# HTTPARTY: require 'httparty' => false
-##########
-
-
-# need to take out the hard coded auth code
-# need to pass starting lat and starting lng into the method so they can come from somewhere
+  def price_max
+    max_array = @cost_response["cost_estimates"].map {|response| response["estimated_cost_cents_max"]}
+    (max_array.max)/100.0
+  end
 
 end

@@ -27,12 +27,16 @@ class LyftTest < ActiveSupport::TestCase
     assert_equal "lyft", l.travel_type
   end
 
-  # test "prince_min" do
-  # end
-  #
-  # test "assert price max" do
-  # end
-  #
+  test "price_min" do
+    l = Lyft.new
+    assert_equal 7.14, l.price_min
+  end
+
+  test "assert price max" do
+    l = Lyft.new
+    assert_equal 19.51, l.price_max
+  end
+
   # test "assert ride ETA" do
   # end
   #
