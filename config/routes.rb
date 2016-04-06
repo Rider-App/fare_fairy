@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'homes/show'
+
   get 'fares/show'
   root 'fares#show', defaults: {format: 'json'}
 
