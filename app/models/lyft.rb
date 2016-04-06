@@ -1,5 +1,5 @@
 class Lyft < Transit
-  attr_reader :token
+  attr_reader :token, :cost_response
 
   def initialize(start_lat, start_lng, end_lat, end_lng)
 
