@@ -7,7 +7,7 @@ json.results do
 
 end
 
-json.options @options do |o|
+json.ride_sharing @options do |o|
 
   json.travel_type o.travel_type
   json.price_min o.price_min
