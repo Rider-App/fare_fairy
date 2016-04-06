@@ -43,6 +43,7 @@ class Lyft < Transit
 
   def eta
     etas = self.options.map {|e| e["total_eta"]}
+    etas = etas.select {|a| a.class == Fixnum}
     etas.min
     # eta_hash = {}
     # @eta_response["eta_estimates"].map {|response| eta_hash["#{response["ride_type"]}"] = response["eta_seconds"]}
@@ -72,12 +73,12 @@ class Lyft < Transit
       options_hash["price_max"] = convert_price(r["estimated_cost_cents_max"])
       @eta_response["eta_estimates"].each do |e|
         if e["ride_type"] == r["ride_type"]
-          options_hash["pickup_eta"] = convert_time(e["eta_seconds"])
-          break
+          e["eta_seconds"] ? options_hash["pickup_eta"] = convert_time(e["eta_seconds"]) : options_hash["pickup_eta"] =  "No cars available"
+            break
         end
       end
       options_hash["transit_time"] = convert_time(r["estimated_duration_seconds"])
-      options_hash["total_eta"] = options_hash["pickup_eta"] + options_hash["transit_time"]
+      options_hash["pickup_eta"].class == Fixnum ? options_hash["total_eta"] = options_hash["pickup_eta"] + options_hash["transit_time"] : options_hash["total_eta"] =  "No cars available"
       options << options_hash
     end
     options
