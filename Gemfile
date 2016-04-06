@@ -3,9 +3,9 @@ source 'https://rubygems.org'
 ruby '2.3.0'
 
 gem 'rails_12factor'
-
 gem 'puma'
 gem 'httparty'
+gem 'rack-cors', :require => 'rack/cors'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
