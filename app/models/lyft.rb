@@ -1,5 +1,5 @@
 class Lyft < Transit
-  attr_reader :token
+  attr_reader :token, :start_journey_url
 
   def initialize(start_lat, start_lng, end_lat, end_lng)
 
@@ -16,6 +16,8 @@ class Lyft < Transit
 
     @eta_response = HTTParty.get("https://api.lyft.com/v1/eta?lat=#{start_lat}&lng=#{start_lng}",
             {headers: {"Authorization": "bearer #{@token}"} } )
+
+    @start_journey_url = "lyft://ridetype?id=lyft&pickup[latitude]=#{start_lat}&pickup[longitude]=#{start_lng}&destination[latitude]=#{end_lat}&destination[longitude]=#{end_lng}&partner=#{ENV["LYFT_ID"]}"
 
   end
 
@@ -74,7 +76,7 @@ class Lyft < Transit
       @eta_response["eta_estimates"].each do |e|
         if e["ride_type"] == r["ride_type"]
           e["eta_seconds"] ? options_hash["pickup_eta"] = convert_time(e["eta_seconds"]) : options_hash["pickup_eta"] =  "No cars available"
-            break
+          break
         end
       end
       options_hash["transit_time"] = convert_time(r["estimated_duration_seconds"])
