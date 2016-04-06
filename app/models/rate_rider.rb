@@ -1,11 +1,29 @@
 class RateRider
-  attr_reader :response, :origin, :destination, :travel_options
+  attr_reader :response, :origin, :destination, :travel_options, :start_lat, :start_lng
 
   def initialize(origin, destination)
-    @origin_response = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{origin}")
-    @origin = location_coordinates(@origin_response)
-    @destination_response = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{destination}")
-    @destination = location_coordinates(@destination_response)
+
+    address = Address.where("address = ?", origin).first
+    if address
+      @origin = "#{address.lat}, #{address.lng}"
+      @start_lat = address.lat
+      @start_lng = address.lng
+    else
+      @origin_response = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{origin}")
+      @origin = location_coordinates(@origin_response)
+      Address.create(address: origin, lat: start_lat, lng: start_lng)
+    end
+
+    address = Address.where("address = ?", destination).first
+    if address
+      @destination = "#{address.lat}, #{address.lng}"
+      @end_lat = address.lat
+      @end_lng = address.lng
+    else
+      @destination_response = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{destination}")
+      @destination = location_coordinates(@destination_response)
+      Address.create(address: destination, lat: end_lat, lng: end_lng)
+    end
 
     @travel_options = get_transit_data
   end
@@ -40,19 +58,19 @@ class RateRider
   end
 
   def start_lat
-    lat(@origin_response)
+    @start_lng || lat(@origin_response)
   end
 
   def start_lng
-    lng(@origin_response)
+    @start_lat || lng(@origin_response)
   end
 
   def end_lat
-    lat(@destination_response)
+    @end_lat || lat(@destination_response)
   end
 
   def end_lng
-    lng(@destination_response)
+    @end_lng || lng(@destination_response)
   end
 
   def location_coordinates(response)
