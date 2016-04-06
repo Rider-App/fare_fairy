@@ -8,9 +8,9 @@ class RateRider
       @origin = "#{address.lat}, #{address.lng}"
       @start_lat = address.lat
       @start_lng = address.lng
-      @origin_address = address
+      @origin_address = address.address
     else
-      # @origin_response = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{origin}")
+      @origin_response = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{origin}")
       @origin = location_coordinates(@origin_response)
       Address.create(address: origin, lat: start_lat, lng: start_lng)
     end
@@ -20,9 +20,9 @@ class RateRider
       @destination = "#{address.lat}, #{address.lng}"
       @end_lat = address.lat
       @end_lng = address.lng
-      @destination_address = address
+      @destination_address = address.address
     else
-      # @destination_response = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{destination}")
+      @destination_response = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{destination}")
       @destination = location_coordinates(@destination_response)
       Address.create(address: destination, lat: end_lat, lng: end_lng)
     end
@@ -60,11 +60,11 @@ class RateRider
   end
 
   def start_lat
-    @start_lng || lat(@origin_response)
+    @start_lat || lat(@origin_response)
   end
 
   def start_lng
-    @start_lat || lng(@origin_response)
+    @start_lng || lng(@origin_response)
   end
 
   def end_lat
