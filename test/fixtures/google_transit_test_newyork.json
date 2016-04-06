@@ -1,0 +1,406 @@
+{
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJ33xI36lbwokROt9uI3wZajc",
+         "types" : [ "premise" ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "partial_match" : true,
+         "place_id" : "EiY0MzUgRSA3OHRoIFN0LCBOZXcgWW9yaywgTlkgMTAwNzUsIFVTQQ",
+         "types" : [ "street_address" ]
+      }
+   ],
+   "routes" : [
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 40.77362,
+               "lng" : -73.9516684
+            },
+            "southwest" : {
+               "lat" : 40.6749089,
+               "lng" : -74.001623
+            }
+         },
+         "copyrights" : "Map data ©2016 Google",
+         "legs" : [
+            {
+               "arrival_time" : {
+                  "text" : "5:01pm",
+                  "time_zone" : "America/New_York",
+                  "value" : 1459976509
+               },
+               "departure_time" : {
+                  "text" : "4:14pm",
+                  "time_zone" : "America/New_York",
+                  "value" : 1459973652
+               },
+               "distance" : {
+                  "text" : "8.6 mi",
+                  "value" : 13915
+               },
+               "duration" : {
+                  "text" : "48 mins",
+                  "value" : 2857
+               },
+               "end_address" : "435 E 78th St, New York, NY 10075, USA",
+               "end_location" : {
+                  "lat" : 40.7710254,
+                  "lng" : -73.9516684
+               },
+               "start_address" : "82 7th Ave, Brooklyn, NY 11217, USA",
+               "start_location" : {
+                  "lat" : 40.6749089,
+                  "lng" : -73.97515059999999
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "0.3 mi",
+                        "value" : 429
+                     },
+                     "duration" : {
+                        "text" : "5 mins",
+                        "value" : 316
+                     },
+                     "end_location" : {
+                        "lat" : 40.6773366,
+                        "lng" : -73.9722488
+                     },
+                     "html_instructions" : "Walk to 7 Av",
+                     "polyline" : {
+                        "points" : "eigwFtgobMe@Y}BuAoC_B}BuA_CuAX}@DMBMDSf@]E{@"
+                     },
+                     "start_location" : {
+                        "lat" : 40.6749089,
+                        "lng" : -73.97515059999999
+                     },
+                     "steps" : [
+                        {
+                           "distance" : {
+                              "text" : "0.2 mi",
+                              "value" : 351
+                           },
+                           "duration" : {
+                              "text" : "4 mins",
+                              "value" : 251
+                           },
+                           "end_location" : {
+                              "lat" : 40.677716,
+                              "lng" : -73.973249
+                           },
+                           "html_instructions" : "Head \u003cb\u003enortheast\u003c/b\u003e on \u003cb\u003e7th Ave\u003c/b\u003e toward \u003cb\u003eBerkeley Pl\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "eigwFtgobMe@Y}BuAoC_B}BuA_CuA"
+                           },
+                           "start_location" : {
+                              "lat" : 40.6749089,
+                              "lng" : -73.97515059999999
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "171 ft",
+                              "value" : 52
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 45
+                           },
+                           "end_location" : {
+                              "lat" : 40.6775121,
+                              "lng" : -73.97269899999999
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003ePark Pl\u003c/b\u003e",
+                           "maneuver" : "turn-right",
+                           "polyline" : {
+                              "points" : "wzgwFx{nbMX}@DMBMDS"
+                           },
+                           "start_location" : {
+                              "lat" : 40.677716,
+                              "lng" : -73.973249
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "85 ft",
+                              "value" : 26
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 20
+                           },
+                           "end_location" : {
+                              "lat" : 40.6773366,
+                              "lng" : -73.9722488
+                           },
+                           "html_instructions" : "Slight \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eFlatbush Ave\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the left\u003c/div\u003e",
+                           "maneuver" : "turn-slight-right",
+                           "polyline" : {
+                              "points" : "mygwFjxnbMf@]E{@"
+                           },
+                           "start_location" : {
+                              "lat" : 40.6775121,
+                              "lng" : -73.97269899999999
+                           },
+                           "travel_mode" : "WALKING"
+                        }
+                     ],
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "4.7 mi",
+                        "value" : 7520
+                     },
+                     "duration" : {
+                        "text" : "17 mins",
+                        "value" : 990
+                     },
+                     "end_location" : {
+                        "lat" : 40.7352761,
+                        "lng" : -73.9910512
+                     },
+                     "html_instructions" : "Subway towards Astoria - Ditmars Blvd",
+                     "polyline" : {
+                        "points" : "kxgwFpunbMTp@s`@jWIDKDIDIDKBIDKBIBKBI@KBIBK@K@I@mEb@_PhBI?GBI@GBGBGDEDGFEDEHEFEHEHCJCJiAlDcClIELELGLEJGJGHIHGHIHIFIFIFKDIDKDiAb@mDtAwD~AeM`FyFjCyOlG}iBpz@GBIDIBGDIDGDIDGDGFIDGFGFIDGFGF}A|AGFEDEFGFEFEFEHEHEHCHEHCJEJCHCLgBjHCLELCLELELEJELEJGLEJEJGJGJEJGJ}DdG{BlDIJKJIHKFIFKBKBM?K?KAMCMEMEMIMIoZiVod@u^}E}DGEIEGEGEGEGEICGCGCICGAGCIAGAIAsRgCIhA"
+                     },
+                     "start_location" : {
+                        "lat" : 40.6773366,
+                        "lng" : -73.9722488
+                     },
+                     "transit_details" : {
+                        "arrival_stop" : {
+                           "location" : {
+                              "lat" : 40.7352761,
+                              "lng" : -73.9910512
+                           },
+                           "name" : "Union Square Subway"
+                        },
+                        "arrival_time" : {
+                           "text" : "4:36pm",
+                           "time_zone" : "America/New_York",
+                           "value" : 1459974960
+                        },
+                        "departure_stop" : {
+                           "location" : {
+                              "lat" : 40.6773366,
+                              "lng" : -73.9722488
+                           },
+                           "name" : "7 Av"
+                        },
+                        "departure_time" : {
+                           "text" : "4:19pm",
+                           "time_zone" : "America/New_York",
+                           "value" : 1459973970
+                        },
+                        "headsign" : "Astoria - Ditmars Blvd",
+                        "line" : {
+                           "agencies" : [
+                              {
+                                 "name" : "MTA New York City Transit",
+                                 "phone" : "1 (718) 330-1234",
+                                 "url" : "http://www.mta.info/"
+                              }
+                           ],
+                           "color" : "#ffc107",
+                           "icon" : "//maps.gstatic.com/mapfiles/transit/iw2/6/us-ny-mta/Q.png",
+                           "name" : "Broadway Express",
+                           "short_name" : "Q",
+                           "url" : "http://web.mta.info/nyct/service/pdf/tqcur.pdf",
+                           "vehicle" : {
+                              "icon" : "//maps.gstatic.com/mapfiles/transit/iw2/6/subway.png",
+                              "name" : "Subway",
+                              "type" : "SUBWAY"
+                           }
+                        },
+                        "num_stops" : 4
+                     },
+                     "travel_mode" : "TRANSIT"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "3.2 mi",
+                        "value" : 5159
+                     },
+                     "duration" : {
+                        "text" : "13 mins",
+                        "value" : 780
+                     },
+                     "end_location" : {
+                        "lat" : 40.77362,
+                        "lng" : -73.959874
+                     },
+                     "html_instructions" : "Subway towards Parkchester",
+                     "polyline" : {
+                        "points" : "obswF`krbM\\}EIAIAGCIAGCIEyZgSsA{@yQqN_TaKLa@i\\kTEEEECEEEEECECGCECGCGAGCGAGAGAGi@uDe@aDAKCKAICICICICGEICGEEEGEEGEEEGEy\\wT{`@uWkAw@Ob@e_@_Xga@_X"
+                     },
+                     "start_location" : {
+                        "lat" : 40.7352761,
+                        "lng" : -73.9910512
+                     },
+                     "transit_details" : {
+                        "arrival_stop" : {
+                           "location" : {
+                              "lat" : 40.77362,
+                              "lng" : -73.959874
+                           },
+                           "name" : "77 St"
+                        },
+                        "arrival_time" : {
+                           "text" : "4:52pm",
+                           "time_zone" : "America/New_York",
+                           "value" : 1459975920
+                        },
+                        "departure_stop" : {
+                           "location" : {
+                              "lat" : 40.7352761,
+                              "lng" : -73.9910512
+                           },
+                           "name" : "Union Square Subway"
+                        },
+                        "departure_time" : {
+                           "text" : "4:39pm",
+                           "time_zone" : "America/New_York",
+                           "value" : 1459975140
+                        },
+                        "headsign" : "Parkchester",
+                        "line" : {
+                           "agencies" : [
+                              {
+                                 "name" : "MTA New York City Transit",
+                                 "phone" : "1 (718) 330-1234",
+                                 "url" : "http://www.mta.info/"
+                              }
+                           ],
+                           "color" : "#00933c",
+                           "icon" : "//maps.gstatic.com/mapfiles/transit/iw2/6/us-ny-mta/6.png",
+                           "name" : "Lexington Avenue Local",
+                           "short_name" : "6",
+                           "url" : "http://web.mta.info/nyct/service/pdf/t6cur.pdf",
+                           "vehicle" : {
+                              "icon" : "//maps.gstatic.com/mapfiles/transit/iw2/6/subway.png",
+                              "name" : "Subway",
+                              "type" : "SUBWAY"
+                           }
+                        },
+                        "num_stops" : 8
+                     },
+                     "travel_mode" : "TRANSIT"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.5 mi",
+                        "value" : 807
+                     },
+                     "duration" : {
+                        "text" : "10 mins",
+                        "value" : 589
+                     },
+                     "end_location" : {
+                        "lat" : 40.7710254,
+                        "lng" : -73.9516684
+                     },
+                     "html_instructions" : "Walk to 435 E 78th St, New York, NY 10075, USA",
+                     "polyline" : {
+                        "points" : "crzwFdhlbMHg@xB{GxD}L}B{AfE{M|BmH"
+                     },
+                     "start_location" : {
+                        "lat" : 40.77362,
+                        "lng" : -73.959874
+                     },
+                     "steps" : [
+                        {
+                           "distance" : {
+                              "text" : "0.2 mi",
+                              "value" : 352
+                           },
+                           "duration" : {
+                              "text" : "4 mins",
+                              "value" : 252
+                           },
+                           "end_location" : {
+                              "lat" : 40.7720279,
+                              "lng" : -73.9560194
+                           },
+                           "html_instructions" : "Head \u003cb\u003esoutheast\u003c/b\u003e on \u003cb\u003eE 77th St\u003c/b\u003e toward \u003cb\u003e3rd Ave\u003c/b\u003e/\u003cb\u003eAl Nahas Way\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "crzwFdhlbMHg@xB{GxD}L"
+                           },
+                           "start_location" : {
+                              "lat" : 40.77362,
+                              "lng" : -73.959874
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "262 ft",
+                              "value" : 80
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 59
+                           },
+                           "end_location" : {
+                              "lat" : 40.7726606,
+                              "lng" : -73.95555809999999
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003e2nd Ave\u003c/b\u003e",
+                           "maneuver" : "turn-left",
+                           "polyline" : {
+                              "points" : "ehzwFbpkbM}B{A"
+                           },
+                           "start_location" : {
+                              "lat" : 40.7720279,
+                              "lng" : -73.9560194
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "0.2 mi",
+                              "value" : 375
+                           },
+                           "duration" : {
+                              "text" : "5 mins",
+                              "value" : 278
+                           },
+                           "end_location" : {
+                              "lat" : 40.7710254,
+                              "lng" : -73.9516684
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eE 78th St\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the left\u003c/div\u003e",
+                           "maneuver" : "turn-right",
+                           "polyline" : {
+                              "points" : "clzwFfmkbMfE{M|BmH"
+                           },
+                           "start_location" : {
+                              "lat" : 40.7726606,
+                              "lng" : -73.95555809999999
+                           },
+                           "travel_mode" : "WALKING"
+                        }
+                     ],
+                     "travel_mode" : "WALKING"
+                  }
+               ],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "eigwFtgobMqLeH_CuAX}@H[DSf@]E{@Tp@}`@pWUJk@Rk@Lk@H_WpCa@NY\\Uf@wEtO[r@c@f@i@\\mGdC}R`IyFjCyOlGejBtz@SHc@Va@ZsCpCY`@Uf@gCdKq@fB]n@oIjMUPUJYBWA[I[OkgAg|@a@Wa@Sa@MoSmCIhA\\}ESCc@Om]cUyQqN_TaKLa@i\\kTKKSWO]I_@sAkJMi@Qc@YYc_Aym@kAw@Ob@e_@_Xga@_XHg@xB{GxD}L}B{AdIiW"
+         },
+         "summary" : "",
+         "warnings" : [
+            "Walking directions are in beta.    Use caution – This route may be missing sidewalks or pedestrian paths."
+         ],
+         "waypoint_order" : []
+      }
+   ],
+   "status" : "OK"
+}
