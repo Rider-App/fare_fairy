@@ -7,7 +7,7 @@ json.results do
 
 end
 
-json.options @options do |o|
+json.ride_sharing @ride_sharing do |o|
 
   json.travel_type o.travel_type
   json.price_min o.price_min
@@ -19,7 +19,7 @@ json.options @options do |o|
     json.special_considerations o.special_considerations
     json.route_map o.route_map
     json.nearest_pickup_point o.nearest_pickup_point
-    json.options o.options
+    json.ride_sharing o.options
 
   end
 
@@ -27,23 +27,22 @@ json.options @options do |o|
 
 end
 
+json.transit @transit do |o|
 
-# json.lyft do
-#
-#   json.travel_type @lyft.travel_type
-#   json.price_min @lyft.price_min
-#   json.price_max @lyft.price_max
-#   json.eta @lyft.eta
-#
-#   json.details do
-#
-#     json.special_considerations @lyft.special_considerations
-#     json.route_map @lyft.route_map
-#     json.nearest_pickup_point @lyft.nearest_pickup_point
-#     json.options @lyft.options
-#
-#   end
-#
-#   json.start_journey_url @lyft.start_journey_url
-#
-# end
+  json.travel_type o.travel_type
+  json.price_min o.price_min
+  json.price_max o.price_max
+  json.eta o.eta
+
+  json.details do
+
+    json.special_considerations o.special_considerations
+    json.route_map o.route_map
+    json.nearest_pickup_point o.nearest_pickup_point
+    json.transit o.options
+
+  end
+
+  json.start_journey_url o.start_journey_url
+
+end
