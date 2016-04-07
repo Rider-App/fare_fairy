@@ -8,12 +8,7 @@ class FaresController < ApplicationController
 
     ride_sharing << Uber.new(@rate_rider.start_lat, @rate_rider.start_lng, @rate_rider.end_lat, @rate_rider.end_lng)
 
-    lyft = Lyft.new(@rate_rider.start_lat, @rate_rider.start_lng, @rate_rider.end_lat, @rate_rider.end_lng)
-    if !lyft.cost_response["error_description"]
-      ride_sharing << lyft
-    else
-      ride_sharing << Transit.new("Lyft")
-    end
+    ride_sharing << Lyft.new(@rate_rider.start_lat, @rate_rider.start_lng, @rate_rider.end_lat, @rate_rider.end_lng)
 
     bus = GoogleTransit.new(origin, destination, "subway")
     if bus.directions
