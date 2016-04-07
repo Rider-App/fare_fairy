@@ -1,5 +1,5 @@
 class TaxiFare < Transit
-  attr_reader :nearest_city_response, :fare_response, :companies_response, :response_string, :entity_handle, :convert_distance
+  attr_reader :nearest_city_response, :fare_response, :companies_response, :response_string, :entity_handle, :convert_distance, :round_to
 
   def initialize(start_lat=nil, start_lng=nil, end_lat=nil, end_lng=nil)
 
@@ -25,15 +25,29 @@ class TaxiFare < Transit
     @nearest_city_response["handle"]
   end
 
+  def tip_amount
+    real_tip = (@fare_response["total_fare"] * 0.15).round
+    if real_tip < 5
+      5
+    else
+      real_tip
+    end
+  end
+
   def total_fare
-    @fare_response["total_fare"]
+    polite_fare = @fare_response["total_fare"] - @fare_response["tip_amount"]
+    polite_fare += tip_amount
+    polite_fare.round
+
+    #take total fare into account when giving a tip
+    #take out their tip amount and replace it with reasonable tip method
   end
 
   def extra_charges
     @fare_response["extra_charges"].reduce(0.0) {|sum, c| sum += c["charge"]}
   end
 
-  
+
 
 
 

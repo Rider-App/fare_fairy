@@ -37,6 +37,20 @@ class TaxiFareTest < ActiveSupport::TestCase
     assert_equal 7.5, tf.extra_charges
   end
 
+  test "can get reasonable tip amount" do
+    tf = TaxiFare.new
+    assert_equal 3.54, tf.tip_amount
+  end
+
+
+
+
+
+
+
+
+
+
 
 
 end
