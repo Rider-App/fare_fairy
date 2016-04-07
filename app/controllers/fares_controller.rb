@@ -6,7 +6,7 @@ class FaresController < ApplicationController
     ride_sharing = []
     transit = []
 
-    options << Uber.new(@rate_rider.start_lat, @rate_rider.start_lng, @rate_rider.end_lat, @rate_rider.end_lng)
+    ride_sharing << Uber.new(@rate_rider.start_lat, @rate_rider.start_lng, @rate_rider.end_lat, @rate_rider.end_lng)
 
     lyft = Lyft.new(@rate_rider.start_lat, @rate_rider.start_lng, @rate_rider.end_lat, @rate_rider.end_lng)
     if !lyft.cost_response["error_description"]
