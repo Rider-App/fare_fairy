@@ -9,8 +9,13 @@ class TaxiFare
     @companies_response = JSON.parse(File.read("#{Rails.root}/test/fixtures/taxi_fare_test_companies.json"))
 
   end
+end
 
+class TaxiFareTest < ActiveSupport::TestCase
 
+  test "assert true" do
+    true
+  end
 
 
 
