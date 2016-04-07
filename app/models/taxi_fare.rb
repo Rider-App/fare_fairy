@@ -1,5 +1,5 @@
 class TaxiFare < Transit
-  attr_reader :nearest_city_response, :fare_response, :companies_response, :response_string, :entity_handle
+  attr_reader :nearest_city_response, :fare_response, :companies_response, :response_string, :entity_handle, :convert_distance
 
   def initialize(start_lat=nil, start_lng=nil, end_lat=nil, end_lng=nil)
 
@@ -17,15 +17,23 @@ class TaxiFare < Transit
     (self * 10**x).round.to_f / 10**x
   end
 
-  def taxi_distance(meters)
-    (meters/0.000621371).round_to(2)
+  def convert_distance(meters)
+    (meters * 0.000621371).round_to(2)
   end
 
   def entity_handle
     @nearest_city_response["handle"]
   end
 
+  def total_fare
+    @fare_response["total_fare"]
+  end
 
+  def extra_charges
+    @fare_response["extra_charges"].reduce(0.0) {|sum, c| sum += c["charge"]}
+  end
+
+  
 
 
 
