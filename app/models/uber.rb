@@ -18,6 +18,7 @@ class Uber < Transit
     @prices["prices"].each do |p|
       min_array << p["low_estimate"]
     end
+    min_array.select! {|m| m.class == Fixnum}
     min_array.min
   end
 
@@ -26,7 +27,8 @@ class Uber < Transit
     @prices["prices"].each do |p|
       max_array << p["high_estimate"]
     end
-    price_max = max_array.max
+    max_array.select! {|m| m.class == Fixnum}
+    max_array.max
   end
 
   def eta
