@@ -1,10 +1,8 @@
 class Transit
-  def initialize
+  attr_reader :travel_type
 
-  end
-
-  def travel_type
-    ""
+  def initialize(travel_type="")
+    @travel_type = travel_type
   end
 
   def price_min
@@ -36,12 +34,12 @@ class Transit
   end
 
   def options
-    '{"ride_name": "",
+    [{"ride_name": "",
     "price_min": nil,
     "price_max": nil,
     "pickup_eta": nil,
     "transit_time": nil,
-    "total_eta": nil}'
+    "total_eta": nil}]
   end
 
 

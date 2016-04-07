@@ -40,12 +40,11 @@ class TransitTest < ActiveSupport::TestCase
 
   test "can get options" do
     t = Transit.new
-    assert_equal '{"ride_name": "",
-    "price_min": nil,
-    "price_max": nil,
-    "pickup_eta": nil,
-    "transit_time": nil,
-    "total_eta": nil}', t.options
+    assert_equal nil, t.options[0]["ride_name"]
+    assert_equal nil, t.options[0]["total_eta"]
+    assert_equal nil, t.options[0]["pickup_eta"]
+    assert_equal nil, t.options[0]["transit_time"]
+    assert_equal nil, t.options[0]["price_max"]
   end
 
   test "can get start journey url" do

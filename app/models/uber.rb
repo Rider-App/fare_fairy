@@ -1,10 +1,16 @@
 class Uber < Transit
-  attr_reader :prices, :times
+  attr_reader :prices, :times, :start_journey_url
 
   def initialize(origin_latitude=nil, origin_longitude=nil, destination_latitude=nil, destination_longitude=nil)
       header = {"Authorization" => "Token #{ENV["UBER_TOKEN"]}"}
       @prices = HTTParty.get("https://api.uber.com/v1/estimates/price?start_latitude=#{origin_latitude}&start_longitude=#{origin_longitude}&end_latitude=#{destination_latitude}&end_longitude=#{destination_longitude}", headers: header)
       @times = HTTParty.get("https://api.uber.com/v1/estimates/time?start_latitude=#{origin_latitude}&start_longitude=#{origin_longitude}", headers: header)
+      @start_journey_url = "uber://?client_id=#{ENV["UBER_TOKEN"]}&action=setPickup&pickup[latitude]=#{origin_latitude}&pickup[longitude]=#{origin_longitude}&dropoff[latitude]=#{destination_latitude}&dropoff[longitude]=#{destination_longitude}"
+
+  end
+
+  def valid?
+    !prices["fields"]
   end
 
   def travel_type
@@ -12,28 +18,34 @@ class Uber < Transit
   end
 
   def price_min
+    return super unless valid?
     min_array=[]
     @prices["prices"].each do |p|
       min_array << p["low_estimate"]
     end
-    price_min = min_array.min
+    min_array.select! {|m| m.class == Fixnum}
+    min_array.min
   end
 
   def price_max
+    return super unless valid?
     max_array=[]
     @prices["prices"].each do |p|
       max_array << p["high_estimate"]
     end
-    price_max = max_array.max
+    max_array.select! {|m| m.class == Fixnum}
+    max_array.max
   end
 
   def eta
+    return super unless valid?
     etas = self.options.map {|e| e[:total_eta]}
     etas = etas.select {|a| a.class == Fixnum}
     etas.min
   end
 
   def special_considerations
+    return super unless valid?
     surge_pricing = false
     @prices["prices"].each do |p|
       surge_pricing = true if p["surge_multiplier"] > 1
@@ -42,6 +54,7 @@ class Uber < Transit
   end
 
   def options
+    return super unless valid? 
     options_array = []
     @prices["prices"].each do |p|
       ride_name = p["display_name"]
@@ -69,4 +82,5 @@ class Uber < Transit
     end
     options_array
   end
+
 end

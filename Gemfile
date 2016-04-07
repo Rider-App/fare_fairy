@@ -3,9 +3,10 @@ source 'https://rubygems.org'
 ruby '2.3.0'
 
 gem 'rails_12factor'
-
 gem 'puma'
 gem 'httparty'
+gem 'rack-cors', :require => 'rack/cors'
+gem 'mocha'
 
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
