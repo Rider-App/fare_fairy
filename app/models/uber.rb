@@ -9,11 +9,16 @@ class Uber < Transit
 
   end
 
+  def valid?
+    !prices["fields"]
+  end
+
   def travel_type
     "Uber"
   end
 
   def price_min
+    return super unless valid?
     min_array=[]
     @prices["prices"].each do |p|
       min_array << p["low_estimate"]
@@ -23,6 +28,7 @@ class Uber < Transit
   end
 
   def price_max
+    return super unless valid?
     max_array=[]
     @prices["prices"].each do |p|
       max_array << p["high_estimate"]
@@ -32,12 +38,14 @@ class Uber < Transit
   end
 
   def eta
+    return super unless valid?
     etas = self.options.map {|e| e[:total_eta]}
     etas = etas.select {|a| a.class == Fixnum}
     etas.min
   end
 
   def special_considerations
+    return super unless valid?
     surge_pricing = false
     @prices["prices"].each do |p|
       surge_pricing = true if p["surge_multiplier"] > 1
@@ -46,6 +54,7 @@ class Uber < Transit
   end
 
   def options
+    return super unless valid? 
     options_array = []
     @prices["prices"].each do |p|
       ride_name = p["display_name"]
