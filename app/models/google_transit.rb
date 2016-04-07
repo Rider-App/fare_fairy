@@ -30,6 +30,10 @@ class GoogleTransit < Transit
     transit_modes[index]["transit_details"]["departure_time"]["text"].to_time
   end
 
+  def ride_name
+    options[0]["ride_name"]
+  end
+
   def options
     options = []
     transit_modes.each_with_index do |t, i|
