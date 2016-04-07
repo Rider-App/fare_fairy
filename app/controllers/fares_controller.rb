@@ -19,9 +19,9 @@ class FaresController < ApplicationController
       options << Transit.new("Lyft")
     end
 
-    google = GoogleTransit.new(origin, destination)
+    google = GoogleTransit.new(origin, destination, "bus")
     if google.directions
-      options << GoogleTransit.new(origin, destination, "bus")
+      options << google
       options << GoogleTransit.new(origin, destination, "subway")
     end
 
