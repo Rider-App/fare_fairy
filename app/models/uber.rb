@@ -9,11 +9,16 @@ class Uber < Transit
 
   end
 
+  def valid?
+    !prices["fields"]
+  end
+
   def travel_type
     "Uber"
   end
 
   def price_min
+    return super unless valid? 
     min_array=[]
     @prices["prices"].each do |p|
       min_array << p["low_estimate"]
