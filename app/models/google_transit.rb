@@ -11,7 +11,8 @@ class GoogleTransit < Transit
   end
 
   def travel_type
-    transit_modes.first["transit_details"]["line"]["vehicle"]["name"]
+    modes = transit_modes.map { |t| t["transit_details"]["line"]["vehicle"]["name"] }
+    modes.uniq * " + "
   end
 
   def price_max
@@ -23,22 +24,24 @@ class GoogleTransit < Transit
     (@response["routes"][0]["legs"][0]["duration"]["value"] / 60.0).round
   end
 
-  def departure_time
-    transit_modes.first["transit_details"]["departure_time"]["text"].to_time
+  def departure_time(index = 0)
+    transit_modes[index]["transit_details"]["departure_time"]["text"].to_time
   end
 
   def options
     options = []
-    options_hash = {}
-    options_hash["ride_name"] = transit_modes.first["transit_details"]["line"]["name"]
-    options_hash["price_min"] = price_min
-    options_hash["price_max"] = price_max
-    options_hash["pickup_eta"] = (departure_time.to_time - Time.now) / 60
-    options_hash["total_eta"] = eta
-    options_hash["transit_time"] = eta
+    transit_modes.each_with_index do |t, i|
+      options_hash = {}
+      options_hash["ride_name"] = t["transit_details"]["line"]["name"]
+      options_hash["price_min"] = price_min
+      options_hash["price_max"] = price_max
+      options_hash["pickup_eta"] = (departure_time(i).to_time - Time.now) / 60
+      options_hash["total_eta"] = eta
+      options_hash["transit_time"] = eta
+      options << options_hash
 
-    options << options_hash
-
+    end
+    options
   end
 
 

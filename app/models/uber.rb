@@ -18,7 +18,7 @@ class Uber < Transit
     @prices["prices"].each do |p|
       min_array << p["low_estimate"]
     end
-    price_min = min_array.min
+    min_array.min
   end
 
   def price_max
