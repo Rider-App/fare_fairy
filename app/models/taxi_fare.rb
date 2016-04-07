@@ -13,12 +13,8 @@ class TaxiFare < Transit
     "Taxi"
   end
 
-  def round_to
-    (self * 10**x).round.to_f / 10**x
-  end
-
   def convert_distance(meters)
-    (meters * 0.000621371).round_to(2)
+    (meters * 0.000621371).round(2)
   end
 
   def entity_handle
@@ -43,10 +39,6 @@ class TaxiFare < Transit
     #take out their tip amount and replace it with reasonable tip method
   end
 
-  def extra_charges
-    @fare_response["extra_charges"].reduce(0.0) {|sum, c| sum += c["charge"]}
-  end
-
   def price_min
     @fare_response["total_fare"] - @fare_response["tip_amount"]
   end
@@ -55,11 +47,49 @@ class TaxiFare < Transit
     @fare_response["total_fare"]
   end
 
+  def eta
+    "No information available"
+  end
 
+  # returns the sum of all extra charges
+  def extra_charges
+    @fare_response["extra_charges"].reduce(0.0) {|sum, c| sum += c["charge"]}
+  end
 
+  # returns the hash of extra_charges, namely the "charge" and "description" fields
+  def special_considerations
+    @fare_response["extra_charges"]
+  end
 
+  def options
+    opt_array = []
+    opt_hash = {}
+    opt_hash["ride_name"] = "Local taxi"
+    opt_hash["price_min"] = @fare_response["total_fare"] - @fare_response["tip_amount"]
+    opt_hash["price_max"] = @fare_response["total_fare"]
+    opt_hash["eta_estimates"] = "N/A"
+    opt_hash["transit_time"] = "N/A"
+    opt_hash["pickup_eta"] = "N/A"
+    opt_array << opt_hash
+    opt_array
+  end
 
+  def call_one_cab
+    cab_array = []
+    cab_array << (@companies_response["businesses"][0]["name"])
+    cab_array << (@companies_response["businesses"][0]["phone"])
+    cab_array
+  end
 
-
+  def call_all_cabs
+    cab_array = []
+    (@companies_response["businesses"]).each do |i|
+      temp_array = []
+      temp_array << [i][0]["name"]
+      temp_array << [i][0]["phone"]
+      cab_array << temp_array
+    end
+    cab_array
+  end
 
 end

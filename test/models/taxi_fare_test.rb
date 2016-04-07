@@ -52,6 +52,31 @@ class TaxiFareTest < ActiveSupport::TestCase
     assert_equal 27.11, tf.price_max
   end
 
+  test "can get eta" do
+    tf = TaxiFare.new
+    assert_equal "No information available", tf.eta
+  end
+
+  test "can get special considerations" do
+    tf = TaxiFare.new
+    assert_equal [{"charge"=>5.25, "description"=>"Harbor Tunnel Tolls"}, {"charge"=>2.25, "description"=>"Logan Airport Fee"}], tf.special_considerations
+  end
+
+  test "can get options hash" do
+    tf = TaxiFare.new
+    assert_equal [{"ride_name"=>"Local taxi", "price_min"=> 23.57, "price_max"=> 27.11, "eta_estimates"=> "No information available", "transit_time"=> "No information available", "pickup_eta"=>"No information available"}], tf.options
+  end
+
+  test "can get one taxi co name and number" do
+    tf = TaxiFare.new
+    assert_equal ["CabCo1", "123-456-7890"], tf.call_one_cab
+  end
+
+  test "can get all taxi co names and numbers" do
+    tf = TaxiFare.new
+    assert_equal [["CabCo1", "123-456-7890"], ["CabCo2", "098-765-4321"]], tf.call_all_cabs
+  end
+
 
 
 
