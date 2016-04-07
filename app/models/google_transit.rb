@@ -1,9 +1,11 @@
 class GoogleTransit < Transit
-  attr_reader :response
+  attr_reader :response, :directions
 
-  def initialize(origin, destination)
-    @response = HTTParty.get("https://maps.googleapis.com/maps/api/directions/json?origin=#{origin}&destination=#{destination}&mode=transit&units=imperial&key=#{ENV["GOOGLE_MATRIX_KEY"]}")
-    @directions = @response["routes"][0]["legs"][0]["steps"]
+  def initialize(origin, destination, mode=nil)
+    @response = HTTParty.get("https://maps.googleapis.com/maps/api/directions/json?origin=#{origin}&destination=#{destination}&mode=transit&transit_mode=#{mode}&units=imperial&key=#{ENV["GOOGLE_MATRIX_KEY"]}")
+    if @response["status"] == "OK"
+      @directions = @response["routes"][0]["legs"][0]["steps"]
+    end
   end
 
   def transit_modes
