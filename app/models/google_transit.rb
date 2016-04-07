@@ -1,12 +1,21 @@
 class GoogleTransit < Transit
-  attr_reader :response
+  attr_reader :response, :start_journey_url
 
   def initialize(origin, destination, mode=nil)
+    @origin = origin
+    @destination = destination
     @response = HTTParty.get("https://maps.googleapis.com/maps/api/directions/json?origin=#{origin}&destination=#{destination}&mode=transit&transit_mode=#{mode}&units=imperial&key=#{ENV["GOOGLE_MATRIX_KEY"]}")
+    @start_journey_url = "comgooglemaps://?saddr=#{origin}&daddr=#{destination}&directionsmode=transit"
   end
 
   def valid?
     @response["status"] == "OK"
+  end
+
+  def start_journey_url
+    origin = @origin.gsub(" ", "+")
+    destination = @destination.gsub(" ", "+")
+    "http://maps.google.com?saddr=#{origin}&daddr=#{destination}&directionsmode=transit"
   end
 
   def directions
