@@ -19,7 +19,7 @@ class FaresController < ApplicationController
       options << Transit.new("Lyft")
     end
 
-    # options << GoogleTransit.new(origin, destination)
+    options << GoogleTransit.new(origin, destination)
 
     @options = options
   end
