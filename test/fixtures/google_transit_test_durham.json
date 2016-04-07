@@ -1,0 +1,243 @@
+{
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJ5_r7vvrjrIkR0Wf48x6zQ0E",
+         "types" : [ "street_address" ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "Eik1MTQgVyBQZXR0aWdyZXcgU3QsIER1cmhhbSwgTkMgMjc3MDEsIFVTQQ",
+         "types" : [ "street_address" ]
+      }
+   ],
+   "routes" : [
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 36.01905199999999,
+               "lng" : -78.9051542
+            },
+            "southwest" : {
+               "lat" : 35.9955578,
+               "lng" : -78.91917979999999
+            }
+         },
+         "copyrights" : "Map data ©2016 Google",
+         "fare" : {
+            "currency" : "USD",
+            "text" : "$1.00",
+            "value" : 1
+         },
+         "legs" : [
+            {
+               "arrival_time" : {
+                  "text" : "3:26pm",
+                  "time_zone" : "America/New_York",
+                  "value" : 1459970787
+               },
+               "departure_time" : {
+                  "text" : "3:11pm",
+                  "time_zone" : "America/New_York",
+                  "value" : 1459969867
+               },
+               "distance" : {
+                  "text" : "2.7 mi",
+                  "value" : 4314
+               },
+               "duration" : {
+                  "text" : "15 mins",
+                  "value" : 920
+               },
+               "end_address" : "514 W Pettigrew St, Durham, NC 27701, USA",
+               "end_location" : {
+                  "lat" : 35.9969618,
+                  "lng" : -78.90669939999999
+               },
+               "start_address" : "1214 Broad St, Durham, NC 27705, USA",
+               "start_location" : {
+                  "lat" : 36.0182721,
+                  "lng" : -78.91910849999999
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "285 ft",
+                        "value" : 87
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 58
+                     },
+                     "end_location" : {
+                        "lat" : 36.01905199999999,
+                        "lng" : -78.91915
+                     },
+                     "html_instructions" : "Walk to Broad St at F St",
+                     "polyline" : {
+                        "points" : "eyyzEl{t`NiACeAEK??P"
+                     },
+                     "start_location" : {
+                        "lat" : 36.0182721,
+                        "lng" : -78.91910849999999
+                     },
+                     "steps" : [
+                        {
+                           "distance" : {
+                              "text" : "285 ft",
+                              "value" : 87
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 58
+                           },
+                           "end_location" : {
+                              "lat" : 36.01905199999999,
+                              "lng" : -78.91915
+                           },
+                           "html_instructions" : "Head \u003cb\u003enorth\u003c/b\u003e on \u003cb\u003eBroad St\u003c/b\u003e toward \u003cb\u003eF St\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the left\u003c/div\u003e",
+                           "polyline" : {
+                              "points" : "eyyzEl{t`NiACeAEK??P"
+                           },
+                           "start_location" : {
+                              "lat" : 36.0182721,
+                              "lng" : -78.91910849999999
+                           },
+                           "travel_mode" : "WALKING"
+                        }
+                     ],
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "2.6 mi",
+                        "value" : 4111
+                     },
+                     "duration" : {
+                        "text" : "13 mins",
+                        "value" : 780
+                     },
+                     "end_location" : {
+                        "lat" : 35.995952,
+                        "lng" : -78.90600499999999
+                     },
+                     "html_instructions" : "Bus towards Durham Station",
+                     "polyline" : {
+                        "points" : "a~yzEt{t`N@UABJ?dADbDFfADz@BDoB?MBaA@s@?gA@W?kBHe@@KFiFD{C@s@@c@FwE?Y@qADkA@m@?g@@qCA[@_A?KE}AA}A?i@AgB?y@A_AP?nIEj@?dJE\\@~BCTAnEAR?fFBlF?lB?tA?P?dBBfB?jB?pB@pACX?dB@hBAdBBtBAdB?L?hDBl@BF@XHJDNHLNrAhAhAdAd@b@@B`@\\@BtAlAt@l@TDxABh@ChAAdD??eGA@AwG?kDzBuEz@cBbBtAq@hB[U"
+                     },
+                     "start_location" : {
+                        "lat" : 36.01905199999999,
+                        "lng" : -78.91915
+                     },
+                     "transit_details" : {
+                        "arrival_stop" : {
+                           "location" : {
+                              "lat" : 35.995952,
+                              "lng" : -78.90600499999999
+                           },
+                           "name" : "Durham Station"
+                        },
+                        "arrival_time" : {
+                           "text" : "3:25pm",
+                           "time_zone" : "America/New_York",
+                           "value" : 1459970700
+                        },
+                        "departure_stop" : {
+                           "location" : {
+                              "lat" : 36.01905199999999,
+                              "lng" : -78.91915
+                           },
+                           "name" : "Broad St at F St"
+                        },
+                        "departure_time" : {
+                           "text" : "3:12pm",
+                           "time_zone" : "America/New_York",
+                           "value" : 1459969920
+                        },
+                        "headsign" : "Durham Station",
+                        "line" : {
+                           "agencies" : [
+                              {
+                                 "name" : "GoDurham",
+                                 "url" : "http://data.durhamnc.gov/Index_DATA.cfm"
+                              }
+                           ],
+                           "color" : "#0033cc",
+                           "name" : "Northgate/Guess Rd/Willowdale",
+                           "short_name" : "1B",
+                           "text_color" : "#ffffff",
+                           "url" : "http://www.gotriangle.org/transit/data-schedules-maps/",
+                           "vehicle" : {
+                              "icon" : "//maps.gstatic.com/mapfiles/transit/iw2/6/bus.png",
+                              "name" : "Bus",
+                              "type" : "BUS"
+                           }
+                        },
+                        "num_stops" : 13
+                     },
+                     "travel_mode" : "TRANSIT"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "381 ft",
+                        "value" : 116
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 87
+                     },
+                     "end_location" : {
+                        "lat" : 35.9969618,
+                        "lng" : -78.90669939999999
+                     },
+                     "html_instructions" : "Walk to 514 W Pettigrew St, Durham, NC 27701, USA",
+                     "polyline" : {
+                        "points" : "umuzEnir`NqAeAwBpE"
+                     },
+                     "start_location" : {
+                        "lat" : 35.995952,
+                        "lng" : -78.90600499999999
+                     },
+                     "steps" : [
+                        {
+                           "distance" : {
+                              "text" : "381 ft",
+                              "value" : 116
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 87
+                           },
+                           "end_location" : {
+                              "lat" : 35.9969618,
+                              "lng" : -78.90669939999999
+                           },
+                           "html_instructions" : "Head \u003cb\u003enorthwest\u003c/b\u003e on \u003cb\u003eW Pettigrew St\u003c/b\u003e toward \u003cb\u003eW Chapel Hill St\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "umuzEnir`NqAeAwBpE"
+                           },
+                           "start_location" : {
+                              "lat" : 35.995952,
+                              "lng" : -78.90600499999999
+                           },
+                           "travel_mode" : "WALKING"
+                        }
+                     ],
+                     "travel_mode" : "WALKING"
+                  }
+               ],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "eyyzEl{t`NoCIK??P?QpADjFLz@BDoBBoA@{B@cCJq@P}MNoK@cG@kAG{DCkGvb@QvQBtHB|E@jBCjL@rB?vEF`@JZNpEbEzBrBt@l@TDbC?nFA?eGA@AcMvDyHbBtAq@hBmB{AwBpE"
+         },
+         "summary" : "",
+         "warnings" : [
+            "Walking directions are in beta.    Use caution – This route may be missing sidewalks or pedestrian paths."
+         ],
+         "waypoint_order" : []
+      }
+   ],
+   "status" : "OK"
+}
