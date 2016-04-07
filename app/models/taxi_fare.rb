@@ -26,7 +26,7 @@ class TaxiFare < Transit
   end
 
   def tip_amount
-    real_tip = (@fare_response["total_fare"] * 0.15).round
+    real_tip = ((@fare_response["total_fare"] - @fare_response["tip_amount"]) * 0.15).round
     if real_tip < 5
       5
     else
@@ -47,7 +47,13 @@ class TaxiFare < Transit
     @fare_response["extra_charges"].reduce(0.0) {|sum, c| sum += c["charge"]}
   end
 
+  def price_min
+    @fare_response["total_fare"] - @fare_response["tip_amount"]
+  end
 
+  def price_max
+    @fare_response["total_fare"]
+  end
 
 
 

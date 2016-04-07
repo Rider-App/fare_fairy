@@ -29,7 +29,7 @@ class TaxiFareTest < ActiveSupport::TestCase
 
   test "can get total fare" do
     tf = TaxiFare.new
-    assert_equal 27.11, tf.total_fare
+    assert_equal 29, tf.total_fare
   end
 
   test "can get extra charges" do
@@ -39,7 +39,17 @@ class TaxiFareTest < ActiveSupport::TestCase
 
   test "can get reasonable tip amount" do
     tf = TaxiFare.new
-    assert_equal 3.54, tf.tip_amount
+    assert_equal 5, tf.tip_amount
+  end
+
+  test "can get price min" do
+    tf = TaxiFare.new
+    assert_equal 23.57, tf.price_min
+  end
+
+  test "can get price max" do
+    tf = TaxiFare.new
+    assert_equal 27.11, tf.price_max
   end
 
 
