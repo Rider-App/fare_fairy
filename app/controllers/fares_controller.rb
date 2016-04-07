@@ -3,22 +3,22 @@ class FaresController < ApplicationController
     origin = params[:origin]
     destination = params[:destination]
     @rate_rider = RateRider.new(origin, destination)
-    options = []
+    ride_sharing = []
+    transit = []
 
-    uber = Uber.new(@rate_rider.start_lat, @rate_rider.start_lng, @rate_rider.end_lat, @rate_rider.end_lng)
-    if !uber.prices["fields"]
-      options << uber
-    else
-      options << Transit.new("Uber")
+    ride_sharing << Uber.new(@rate_rider.start_lat, @rate_rider.start_lng, @rate_rider.end_lat, @rate_rider.end_lng)
+
+    ride_sharing << Lyft.new(@rate_rider.start_lat, @rate_rider.start_lng, @rate_rider.end_lat, @rate_rider.end_lng)
+
+    bus = GoogleTransit.new(origin, destination, "subway")
+    if bus.valid?
+      transit << bus
+      subway = GoogleTransit.new(origin, destination, "bus")
+      transit << subway unless subway.ride_name == bus.ride_name && subway.travel_type == bus.travel_type
+
     end
 
-    lyft = Lyft.new(@rate_rider.start_lat, @rate_rider.start_lng, @rate_rider.end_lat, @rate_rider.end_lng)
-    if !lyft.cost_response["error_description"]
-      options << lyft
-    else
-      options << Transit.new("Lyft")
-    end
-
-    @options = options
+    @ride_sharing = ride_sharing
+    @transit = transit
   end
 end
