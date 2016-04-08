@@ -29,10 +29,10 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: 'User was successfully updated.'
+      # redirect_to @user, notice: 'User was successfully updated.'
       render :show, status: :ok, location: @user
     else
-      render :edit
+      # render :edit
       render json: @user.errors, status: :unprocessable_entity
     end
   end
@@ -40,13 +40,21 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      # @user = User.find(params[:id])
+      @user = User.where("token = ?", params[:token]).first
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:user, :password, :token, :email)
+      params.require(:user).permit(:id, :password, :token, :email)
     end
+
+
+    #valid update URL for user 9:
+    # http://localhost:3000/users/9?user[email]=joe@joe.com&token=399b16af4e15b7498119f1addf8cebb4
+
+    # probably don't need the id number (9 in above)
+
 
 
 end
