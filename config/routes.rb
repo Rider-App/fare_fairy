@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'fares/show'
-  root 'fares#show', defaults: {format: 'json'}
+  get 'homes/show'
+
+  get 'fares/show', defaults: {format: 'json'}
+  root 'homes#show'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
