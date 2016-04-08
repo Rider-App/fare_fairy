@@ -11,12 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160408151343) do
+
+ActiveRecord::Schema.define(version: 20160408180859) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address"
     t.string   "lat"
     t.string   "lng"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "favorites", force: :cascade do |t|
