@@ -1,6 +1,6 @@
 class FavoritesController < ApplicationController
   before_action :set_user
-  before_action :authenticate_user_favorite, only: [:update]
+  before_action :authenticate_user_favorite, only: [:update, :destroy]
 
   def show
     @favorites = @user.favorites
