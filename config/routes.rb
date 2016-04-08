@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'fares/show', defaults: {format: 'json'}
   root 'homes#show'
 
+  post 'sessions/create' 
+
   resources :users, except: :update
   patch 'users' => 'users#update'
 
