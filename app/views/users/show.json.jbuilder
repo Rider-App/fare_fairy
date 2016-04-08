@@ -1,1 +1,2 @@
-json.response 
+json.token @user.token
+json.success "OK"
