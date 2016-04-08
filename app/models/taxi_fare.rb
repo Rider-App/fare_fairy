@@ -9,6 +9,10 @@ class TaxiFare < Transit
 
   end
 
+  def valid?
+    @nearest_city_response["status"] == "OK"
+  end
+
   def travel_type
     "Taxi"
   end
@@ -22,6 +26,7 @@ class TaxiFare < Transit
   end
 
   def tip_amount
+    return super unless valid?
     real_tip = ((@fare_response["total_fare"] - @fare_response["tip_amount"]) * 0.15).round
     if real_tip < 5
       5
@@ -31,6 +36,7 @@ class TaxiFare < Transit
   end
 
   def total_fare
+    return super unless valid?
     polite_fare = @fare_response["total_fare"] - @fare_response["tip_amount"]
     polite_fare += tip_amount
     polite_fare.round
@@ -40,10 +46,12 @@ class TaxiFare < Transit
   end
 
   def price_min
+    return super unless valid?
     @fare_response["total_fare"] - @fare_response["tip_amount"]
   end
 
   def price_max
+    return super unless valid?
     @fare_response["total_fare"]
   end
 
@@ -53,15 +61,18 @@ class TaxiFare < Transit
 
   # returns the sum of all extra charges
   def extra_charges
+    return super unless valid?
     @fare_response["extra_charges"].reduce(0.0) {|sum, c| sum += c["charge"]}
   end
 
   # returns the hash of extra_charges, namely the "charge" and "description" fields
   def special_considerations
+    return super unless valid?
     @fare_response["extra_charges"]
   end
 
   def options
+    return super unless valid?
     opt_array = []
     opt_hash = {}
     opt_hash["ride_name"] = "Local taxi"
@@ -75,6 +86,7 @@ class TaxiFare < Transit
   end
 
   def call_one_cab
+    return super unless valid?
     cab_array = []
     cab_array << (@companies_response["businesses"][0]["name"])
     cab_array << (@companies_response["businesses"][0]["phone"])
@@ -82,6 +94,7 @@ class TaxiFare < Transit
   end
 
   def call_all_cabs
+    return super unless valid?
     cab_array = []
     (@companies_response["businesses"]).each do |i|
       temp_array = []
