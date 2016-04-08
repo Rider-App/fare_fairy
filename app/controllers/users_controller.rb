@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy
+    if @user.destroy
       redirect_to users_url, notice: 'User was successfully destroyed.'
     end
   end

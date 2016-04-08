@@ -1,10 +1,11 @@
 class User < ActiveRecord::Base
   has_secure_password
+  has_many :favorites
   validates :email, presence: true
   validates :email, uniqueness: true
   before_validation :assign_token
 
-  protected 
+  protected
 
   def assign_token
     if token.nil?
