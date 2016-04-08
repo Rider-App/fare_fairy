@@ -34,7 +34,7 @@ class FavoritesController < ApplicationController
 
   def destroy
     if @favorite.destroy
-      redirect_to favorites_url, notice: 'Favorite was successfully destroyed.'
+      render json: {status: :successfully_destroyed}
     end
   end
 
