@@ -61,11 +61,4 @@ class FavoritesController < ApplicationController
 
 
 
-
-
-
-
-
-
-
 end
