@@ -18,9 +18,9 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.new(favorite_params)
     @favorite.user = @user
     if @favorite.save
-      render :show, status: :created, location: @favorite
+      render json: {status: :created}
     else
-      render json: @favroite.errors, status: :unprocessable_entity
+      render json: @favorite.errors, status: :unprocessable_entity
     end
   end
 
@@ -49,7 +49,17 @@ class FavoritesController < ApplicationController
     end
 
     def set_user
-      @user = User.where("token = ?", params[:token]).first
+      token = params[:token]
+      if token
+        if User.where("token = ?", token).first
+          @user = User.where("token = ?", token).first
+        else
+          render json: {status: :invalid_token}
+        end
+      else
+        render json: {status: :token_needed}
+      end
+
     end
 
     def authenticate_user_favorite
@@ -57,8 +67,6 @@ class FavoritesController < ApplicationController
       @favorites = @user.favorites
       render json: {status: :unprocessable_entity} unless @favorites.include?(@favorite)
     end
-
-
 
 
 end

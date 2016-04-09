@@ -12,8 +12,4 @@ class SessionsController < ApplicationController
     end
   end
 
-  # def destroy
-    # --------- FEE: if someone logs out, we'll kill the session from the front end instead of the sessions controller
-  # end
-
 end
