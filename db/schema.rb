@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20160408180859) do
+ActiveRecord::Schema.define(version: 20160408151343) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address"
@@ -21,6 +20,8 @@ ActiveRecord::Schema.define(version: 20160408180859) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "addresses", ["address"], name: "index_addresses_on_address"
 
   create_table "favorites", force: :cascade do |t|
     t.string   "name"
