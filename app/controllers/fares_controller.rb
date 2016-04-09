@@ -10,6 +10,8 @@ class FaresController < ApplicationController
 
     ride_sharing << Lyft.new(@rate_rider.start_lat, @rate_rider.start_lng, @rate_rider.end_lat, @rate_rider.end_lng)
 
+    ride_sharing << TaxiFare.new(@rate_rider.start_lat, @rate_rider.start_lng, @rate_rider.end_lat, @rate_rider.end_lng)
+
     bus = GoogleTransit.new(origin, destination, "subway")
     if bus.valid?
       transit << bus

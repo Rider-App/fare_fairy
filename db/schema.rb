@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160406154946) do
+ActiveRecord::Schema.define(version: 20160408151343) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address"
@@ -19,6 +19,24 @@ ActiveRecord::Schema.define(version: 20160406154946) do
     t.string   "lng"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  add_index "addresses", ["address"], name: "index_addresses_on_address"
+
+  create_table "favorites", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "token"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end

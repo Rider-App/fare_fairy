@@ -1,0 +1,15 @@
+{
+  "status": "OK",
+  "businesses": [
+    {
+      "name": "CabCo1",
+      "phone": "123-456-7890",
+      "type": "taxi"
+    },
+    {
+      "name": "CabCo2",
+      "phone": "098-765-4321",
+      "type": "taxi"
+    }
+  ]
+}

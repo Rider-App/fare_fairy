@@ -1,0 +1,22 @@
+{
+  "status": "OK",
+  "total_fare": 27.11,
+  "initial_fare": 2.6,
+  "metered_fare": 13.47,
+  "tip_amount": 3.54,
+  "tip_percentage": 15,
+  "locale": "en_US",
+  "rate_area": "Boston, MA",
+  "flat_rates": [
+  ],
+  "extra_charges": [
+    {
+      "charge": 5.25,
+      "description": "Harbor Tunnel Tolls"
+    },
+    {
+      "charge": 2.25,
+      "description": "Logan Airport Fee"
+    }
+  ]
+}
