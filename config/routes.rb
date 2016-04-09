@@ -5,10 +5,12 @@ Rails.application.routes.draw do
   get 'fares/show', defaults: {format: 'json'}
   root 'homes#show'
 
-  post 'sessions/create' 
+  post 'sessions/create'
 
   resources :users, except: :update
   patch 'users' => 'users#update'
+
+  resources :favorites
 
 
   # The priority is based upon order of creation: first created -> highest priority.
