@@ -60,10 +60,11 @@ json.taxis @taxis do |o|
     json.route_map o.route_map
     json.nearest_pickup_point o.nearest_pickup_point
     json.taxis o.options
+    json.contact_info o.call_all_cabs
+
 
   end
 
   json.start_journey_url o.start_journey_url
-  json.contact_info o.call_all_cabs
 
 end
