@@ -98,8 +98,8 @@ class TaxiFare < Transit
     cab_array = []
     (@companies_response["businesses"]).each do |i|
       contact_hash = {}
-      contact_hash["name"] = [i][0]["name"]
-      contact_hash["phone"] = [i][0]["phone"]
+      contact_hash[:name] = [i][0]["name"]
+      contact_hash[:phone] = [i][0]["phone"]
       cab_array << contact_hash
     end
     cab_array

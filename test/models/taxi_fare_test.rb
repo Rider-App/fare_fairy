@@ -54,7 +54,7 @@ class TaxiFareTest < ActiveSupport::TestCase
 
   test "can get eta" do
     tf = TaxiFare.new
-    assert_equal "No information available", tf.eta
+    assert_equal "N/A", tf.eta
   end
 
   test "can get special considerations" do
@@ -64,7 +64,7 @@ class TaxiFareTest < ActiveSupport::TestCase
 
   test "can get options hash" do
     tf = TaxiFare.new
-    assert_equal [{"ride_name"=>"Local taxi", "price_min"=> 23.57, "price_max"=> 27.11, "eta_estimates"=> "No information available", "transit_time"=> "No information available", "pickup_eta"=>"No information available"}], tf.options
+    assert_equal [{"ride_name"=>"Local taxi", "price_min"=> 23.57, "price_max"=> 27.11, "eta_estimates"=> "N/A", "transit_time"=> "N/A", "pickup_eta"=>"N/A"}], tf.options
   end
 
   test "can get one taxi co name and number" do
@@ -74,7 +74,7 @@ class TaxiFareTest < ActiveSupport::TestCase
 
   test "can get all taxi co names and numbers" do
     tf = TaxiFare.new
-    assert_equal [["CabCo1", "123-456-7890"], ["CabCo2", "098-765-4321"]], tf.call_all_cabs
+    assert_equal [{name: "CabCo1", phone: "123-456-7890"}, {name: "CabCo2", phone: "098-765-4321"}], tf.call_all_cabs
   end
 
 

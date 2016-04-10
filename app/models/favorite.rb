@@ -1,8 +1,6 @@
 class Favorite < ActiveRecord::Base
   belongs_to :user
-
-  # def
-  #
-  # end 
+  validates :name, presence: true
+  validates :address, presence: true
 
 end
