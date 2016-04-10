@@ -1,5 +1,4 @@
 class TaxiFare < Transit
-  attr_reader :nearest_city_response, :fare_response, :companies_response, :response_string, :entity_handle, :convert_distance, :round_to
 
   def initialize(start_lat=nil, start_lng=nil, end_lat=nil, end_lng=nil)
 
