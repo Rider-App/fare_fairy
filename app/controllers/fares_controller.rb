@@ -18,9 +18,10 @@ class FaresController < ApplicationController
       transit << subway unless subway.ride_name == bus.ride_name && subway.travel_type == bus.travel_type
     end
 
-    # taxis << TaxiFare.new(@rate_rider.start_lat, @rate_rider.start_lng, @rate_rider.end_lat, @rate_rider.end_lng)
+    taxis << TaxiFare.new(@rate_rider.start_lat, @rate_rider.start_lng, @rate_rider.end_lat, @rate_rider.end_lng)
 
     @ride_sharing = ride_sharing
     @transit = transit
+    @taxis = taxis
   end
 end

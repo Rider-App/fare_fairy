@@ -56,7 +56,7 @@ class TaxiFare < Transit
   end
 
   def eta
-    "No information available"
+    "N/A"
   end
 
   # returns the sum of all extra charges
@@ -97,10 +97,10 @@ class TaxiFare < Transit
     return super unless valid?
     cab_array = []
     (@companies_response["businesses"]).each do |i|
-      temp_array = []
-      temp_array << [i][0]["name"]
-      temp_array << [i][0]["phone"]
-      cab_array << temp_array
+      contact_hash = {}
+      contact_hash["name"] = [i][0]["name"]
+      contact_hash["phone"] = [i][0]["phone"]
+      cab_array << contact_hash
     end
     cab_array
   end
