@@ -1,5 +1,5 @@
 class RateRider
-  attr_reader :response, :origin, :destination, :travel_options, :start_lat, :start_lng, :destination_address, :origin_address
+  attr_reader :origin, :destination, :destination_address, :origin_address
 
   def initialize(origin, destination)
 
@@ -27,12 +27,6 @@ class RateRider
       Address.create(address: destination, lat: end_lat, lng: end_lng)
     end
 
-    @travel_options = get_transit_data
-  end
-
-  def get_transit_data
-    options = []
-    # uber = Uber.new(start_lat, start_lng, end_lat, end_lng)
   end
 
   def formatted_addresses(response)

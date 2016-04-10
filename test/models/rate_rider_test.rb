@@ -8,8 +8,6 @@ class RateRider
 
     @origin = location_coordinates(@origin_response)
     @destination = location_coordinates(@destination_response)
-
-    @travel_options = get_transit_data
   end
 end
 
