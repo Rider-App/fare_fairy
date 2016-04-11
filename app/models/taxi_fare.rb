@@ -46,12 +46,12 @@ class TaxiFare < Transit
 
   def price_min
     return super unless valid?
-    @fare_response["total_fare"] - @fare_response["tip_amount"]
+    (@fare_response["total_fare"] - @fare_response["tip_amount"]).round(2)
   end
 
   def price_max
     return super unless valid?
-    @fare_response["total_fare"]
+    (@fare_response["total_fare"]).round(2)
   end
 
   def eta
