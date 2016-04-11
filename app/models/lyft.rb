@@ -29,6 +29,10 @@ class Lyft < Transit
     "Lyft"
   end
 
+  def iphone_app_url
+    "https://itunes.apple.com/us/app/lyft-taxi-bus-app-alternative/id529379082"
+  end
+
   def price_min
     return super unless valid?
     min_array = @cost_response["cost_estimates"].map {|response| response["estimated_cost_cents_min"]}

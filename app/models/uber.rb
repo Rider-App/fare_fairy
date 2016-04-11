@@ -5,7 +5,7 @@ class Uber < Transit
       header = {"Authorization" => "Token #{ENV["UBER_TOKEN"]}"}
       @prices = HTTParty.get("https://api.uber.com/v1/estimates/price?start_latitude=#{origin_latitude}&start_longitude=#{origin_longitude}&end_latitude=#{destination_latitude}&end_longitude=#{destination_longitude}", headers: header)
       @times = HTTParty.get("https://api.uber.com/v1/estimates/time?start_latitude=#{origin_latitude}&start_longitude=#{origin_longitude}", headers: header)
-      @start_journey_url = "uber://?client_id=#{ENV["UBER_TOKEN"]}&action=setPickup&pickup[latitude]=#{origin_latitude}&pickup[longitude]=#{origin_longitude}&dropoff[latitude]=#{destination_latitude}&dropoff[longitude]=#{destination_longitude}"
+      @start_journey_url = "uber://?action=setPickup&pickup[latitude]=#{origin_latitude}&pickup[longitude]=#{origin_longitude}&dropoff[latitude]=#{destination_latitude}&dropoff[longitude]=#{destination_longitude}"
 
   end
 
@@ -15,6 +15,10 @@ class Uber < Transit
 
   def travel_type
     "Uber"
+  end
+
+  def iphone_app_url
+    "https://m.uber.com/sign-up"
   end
 
   def price_min
@@ -54,7 +58,7 @@ class Uber < Transit
   end
 
   def options
-    return super unless valid? 
+    return super unless valid?
     options_array = []
     @prices["prices"].each do |p|
       ride_name = p["display_name"]
