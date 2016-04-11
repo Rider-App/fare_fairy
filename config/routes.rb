@@ -14,6 +14,16 @@ Rails.application.routes.draw do
 
   resources :favorites
 
+  get 'api/v1/fares' => 'fares#show'
+  post 'api/v1/users' => 'users#create'
+  patch 'api/v1/users' => 'users#update'
+  post 'api/v1/login' => 'sessions#create'
+  get 'api/v1/favorites' => 'favorites#show'
+  post 'api/v1/favorites' => 'favorites#create'
+  patch 'api/v1/favorites/:id' => 'favorites#update'
+  delete 'api/v1/favorites/:id' => 'favorites#destroy'
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
