@@ -5,7 +5,7 @@ class Uber < Transit
       header = {"Authorization" => "Token #{ENV["UBER_TOKEN"]}"}
       @prices = HTTParty.get("https://api.uber.com/v1/estimates/price?start_latitude=#{origin_latitude}&start_longitude=#{origin_longitude}&end_latitude=#{destination_latitude}&end_longitude=#{destination_longitude}", headers: header)
       @times = HTTParty.get("https://api.uber.com/v1/estimates/time?start_latitude=#{origin_latitude}&start_longitude=#{origin_longitude}", headers: header)
-      @start_journey_url = "uber://?action=setPickup&pickup[latitude]=#{origin_latitude}&pickup[longitude]=#{origin_longitude}&dropoff[latitude]=#{destination_latitude}&dropoff[longitude]=#{destination_longitude}"
+      @start_journey_url = "uber://?action=setPickup&pickup[latitude]=#{origin_latitude}&pickup[longitude]=#{origin_longitude}&dropoff[latitude]=#{destination_latitude}&dropoff[longitude]=#{destination_longitude}&client_id=#{ENV["UBER_CLIENT_ID"]}"
 
   end
 
@@ -18,7 +18,7 @@ class Uber < Transit
   end
 
   def iphone_app_url
-    "https://m.uber.com/sign-up"
+    "https://m.uber.com/sign-up?client_id=#{ENV["UBER_CLIENT_ID"]}"
   end
 
   def price_min
