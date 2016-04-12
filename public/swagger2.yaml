@@ -1,0 +1,244 @@
+# this is an example of the Uber API
+# as a demonstration of an API spec in YAML
+swagger: '2.0'
+info:
+  title: FareFairy
+  description: Helping you get there fast
+  version: "1.0.0"
+# the domain of the service
+host: farefairy.herokuapp.com
+# array of all schemes that your API supports
+schemes:
+  - http
+# will be prefixed to all paths
+basePath: /v1
+produces:
+  - application/json
+paths:
+  /fares:
+    post:
+      summary: This is where the magic happens
+      description: |
+        FareFairy works with the Rider app to call the APIs of Uber, Lyft, Taxi Fare Finder and Google Transit to return several transportation options to the user. FareFairy first translates the addresses into latitude and longitude through Google GeoLocator. Fares is the controller that collects all this information and sends it through as a single API call to Rider
+      parameters:
+        - name: origin
+          description: Starting address
+          required: true
+          type: string
+        - name: destination
+          description: Ending address
+          required: true
+          type: string
+      tags:
+        - Fares
+      responses:
+        200:
+          description: An array of transportation options
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Fares'
+        400:
+          description: Bad request
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Fares'
+        422:
+          description: Unprocessable entity
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Fares'
+        500:
+          description: Internal server error
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Fares'
+  /users:
+    get:
+      summary: Sign in if you like
+      description: |
+        The Rider app works without signing in, though the experience will be faster for users if they have a list of favorite locations that can be stored in the database.
+      parameters:
+        - name: id
+          description: ID assigned to each signed-in user
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Users'
+          required: false
+          type: integer
+        - name: password
+          description: Encrypted password
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Users'
+          required: true
+          type: string
+        - name: token
+          description: Token assigned by Rider
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Users'
+          required: false
+          type: string
+        - name: email
+          description: Unique email address
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Users'
+          required: true
+          type: number
+      tags:
+        - Users
+      responses:
+        200:
+          description: The user is set up in the system
+          schema:
+            type: string
+            items:
+              $ref: '#/definitions/Users'
+        400:
+          description: Bad request
+          schema:
+                $ref: '#/definitions/Error'
+        422:
+          description: Unprocessable entity
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Error'
+        500:
+          description: Internal server error
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Error'
+  /favorites:
+    get:
+      summary: Favorites
+      description: This is a list of a signed-in user's favorite locations to be stored in the database.
+      parameters:
+        - name: name
+          description: Name of the favorite address
+          required: true
+          type: string
+        - name: address
+          description: Address of said favorite
+          required: true
+          type: string
+        - name: user token
+          type: string
+          description: Token assigned by Rider
+      tags:
+        - Favorites
+      responses:
+        200:
+          description: An array of transportation options
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Favorites'
+        400:
+          description: Bad request
+          schema:
+            $ref: '#/definitions/Error'
+        422:
+          description: Unprocessable entity
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Error'
+        500:
+          description: Internal server error
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Error'
+  /sessions:
+    get:
+      summary: Sessions controller
+      description: This controls the logging in and logging out of the system
+      parameters:
+        - name: name
+          description: Name of the favorite address
+          required: true
+          type: string
+        - name: address
+          description: Address of said favorite
+          required: true
+          type: object
+        - name: user token
+          type: string
+          description: Token assigned by Rider
+      tags:
+        - Session
+      responses:
+        200:
+          description: An array of transportation options
+          # schema:
+          #   type: array
+          #   items:
+          #     $ref: '#/definitions/Product'
+        400:
+          description: Bad request
+          # schema:
+          #   $ref: '#/definitions/Error'
+        422:
+          description: Unprocessable entity
+          # schema:
+          #   type: array
+          #   items:
+          #     $ref: '#/definitions/Product'
+        500:
+          description: Internal server error
+          # schema:
+          #   type: array
+          #   items:
+          #     $ref: '#/definitions/Product'
+definitions:
+  Fare:
+    type: object
+    properties:
+      origin:
+        type: string
+        description: Starting address including city, state and ZIP
+      destination:
+        type: string
+        description: Ending address including city, state and ZIP
+  Users:
+    type: object
+    properties:
+      email_address:
+        type: string
+        description: Unique identifying email address
+      password:
+        type: string
+        description: Password for signed-in users
+  Favorites:
+    type: object
+    properties:
+      user_token:
+        type: string
+        description: Token assigned by Rider
+      name:
+        type: string
+        description: Name of favorite address (e.g., "Home")
+      address:
+        type: string
+        description: Address of favorite location
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string
