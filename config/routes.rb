@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
   get 'fares/show', defaults: {format: 'json'}
-  root 'fares#show', defaults: {format: 'json'}
+  # root 'fares#show', defaults: {format: 'json'}
   get 'homes/show'
 
   get 'fares/show', defaults: {format: 'json'}
-  # root 'homes#show'
+  root 'homes#show'
 
   post 'sessions/create'
 
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   post 'api/v1/users' => 'users#create'
   patch 'api/v1/users' => 'users#update'
   post 'api/v1/login' => 'sessions#create'
-  delete 'api/v1/logout' => 'sessions#destroy'  
+  delete 'api/v1/logout' => 'sessions#destroy'
   get 'api/v1/favorites' => 'favorites#show', defaults: {format: 'json'}
   post 'api/v1/favorites' => 'favorites#create'
   patch 'api/v1/favorites/:id' => 'favorites#update'
