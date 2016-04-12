@@ -32,5 +32,16 @@ class RateRiderTest < ActiveSupport::TestCase
     assert_equal "514 W Pettigrew St, Durham, NC 27701, USA", rate_rider.destination_address
   end
 
+  test "can get origin city" do
+    rate_rider = RateRider.new
+    assert_equal "Durham", rate_rider.origin_city
+  end
+
+  test "can get origin state" do
+    rate_rider = RateRider.new
+    assert_equal "NC", rate_rider.origin_state
+  end
+
+
 
 end

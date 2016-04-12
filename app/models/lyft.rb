@@ -80,7 +80,7 @@ class Lyft < Transit
 
   private
   def convert_price(amount)
-    (amount / 100.0) * primetime_multiplier
+    ((amount / 100.0) * primetime_multiplier).round(2)
   end
 
   def convert_time(time_in_sec)
