@@ -3,9 +3,6 @@ class TaxiFare < Transit
 
   def initialize(start_lat=nil, start_lng=nil, end_lat=nil, end_lng=nil, city=nil, state=nil)
 
-    # @nearest_city_response = JSON.parse(HTTParty.get("https://api.taxifarefinder.com/entity?key=#{ENV["TFF_KEY"]}&location=#{start_lat},#{start_lng}"))
-    # @fare_response = JSON.parse(HTTParty.get("https://api.taxifarefinder.com/fare?key=#{ENV["TFF_KEY"]}&entity_handle=#{entity_handle}&origin=#{start_lat},#{start_lng}&destination=#{end_lat},#{end_lng}"))
-    # @companies_response = JSON.parse(HTTParty.get("https://api.taxifarefinder.com/businesses?key=#{ENV["TFF_KEY"]}&entity_handle=#{entity_handle}"))
     taxi_handle = TaxiHandle.where("state = ?", state).where("city = ?", city).first
     if city && taxi_handle
       entity_handle = taxi_handle.handle
@@ -28,12 +25,7 @@ class TaxiFare < Transit
     (meters * 0.000621371).round(2)
   end
 
-  # def entity_handle
-  #   @nearest_city_response["handle"]
-  # end
-
   def tip_amount
-    return super unless valid?
     real_tip = ((@fare_response["total_fare"] - @fare_response["tip_amount"]) * 0.15).round
     if real_tip < 5
       5
@@ -68,7 +60,6 @@ class TaxiFare < Transit
 
   # returns the sum of all extra charges
   def extra_charges
-    return super unless valid?
     @fare_response["extra_charges"].reduce(0.0) {|sum, c| sum += c["charge"]}
   end
 
@@ -101,7 +92,6 @@ class TaxiFare < Transit
   end
 
   def call_all_cabs
-    # return super unless valid?
     return [] unless @companies_response
     cab_array = []
     (@companies_response["businesses"]).each do |i|
