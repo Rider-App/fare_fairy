@@ -27,7 +27,7 @@ class Uber < Transit
     @prices["prices"].each do |p|
       min_array << p["low_estimate"]
     end
-    min_array.select! {|m| m.class == Fixnum}
+    min_array.select! {|m| m.class == Fixnum && m > 0}
     min_array.min
   end
 
