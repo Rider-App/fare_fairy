@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160408151343) do
+ActiveRecord::Schema.define(version: 20160412133440) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20160408151343) do
     t.string   "lng"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "city"
+    t.string   "state"
   end
 
   add_index "addresses", ["address"], name: "index_addresses_on_address"
@@ -31,10 +33,24 @@ ActiveRecord::Schema.define(version: 20160408151343) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "session_tokens", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "taxi_handles", force: :cascade do |t|
+    t.string   "city"
+    t.string   "state"
+    t.string   "handle"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
-    t.string   "token"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

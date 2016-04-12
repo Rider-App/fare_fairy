@@ -51,8 +51,9 @@ class FavoritesController < ApplicationController
     def set_user
       token = params[:token]
       if token
-        if User.where("token = ?", token).first
-          @user = User.where("token = ?", token).first
+        user = User.joins(:session_tokens).where("token = ?", token).first
+        if user
+          @user = user
         else
           render json: {status: :invalid_token}
         end
