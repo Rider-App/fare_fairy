@@ -46,12 +46,12 @@ class TaxiFare < Transit
 
   def price_min
     return super unless valid?
-    (@fare_response["total_fare"] - @fare_response["tip_amount"]).round(2)
+    (@fare_response["total_fare"] - @fare_response["tip_amount"]).floor
   end
 
   def price_max
     return super unless valid?
-    (@fare_response["total_fare"]).round(2)
+    (@fare_response["total_fare"]).ceil
   end
 
   def eta
@@ -74,8 +74,8 @@ class TaxiFare < Transit
     opt_array = []
     opt_hash = {}
     opt_hash["ride_name"] = "Local taxi"
-    opt_hash["price_min"] = @fare_response["total_fare"] - @fare_response["tip_amount"]
-    opt_hash["price_max"] = @fare_response["total_fare"]
+    opt_hash["price_min"] = (@fare_response["total_fare"] - @fare_response["tip_amount"]).floor
+    opt_hash["price_max"] = (@fare_response["total_fare"]).ceil
     opt_hash["eta_estimates"] = "N/A"
     opt_hash["transit_time"] = "N/A"
     opt_hash["pickup_eta"] = "N/A"
