@@ -36,13 +36,13 @@ class Lyft < Transit
   def price_min
     return super unless valid?
     min_array = @cost_response["cost_estimates"].map {|response| response["estimated_cost_cents_min"]}
-    convert_price(min_array.min)
+    convert_price(min_array.min).floor
   end
 
   def price_max
     return super unless valid?
     max_array = @cost_response["cost_estimates"].map {|response| response["estimated_cost_cents_max"]}
-    convert_price(max_array.max)
+    convert_price(max_array.max).ceil
   end
 
   def eta
@@ -63,8 +63,8 @@ class Lyft < Transit
     @cost_response["cost_estimates"].each do |r|
       options_hash = {}
       options_hash["ride_name"] = r["display_name"]
-      options_hash["price_min"] = convert_price(r["estimated_cost_cents_min"])
-      options_hash["price_max"] = convert_price(r["estimated_cost_cents_max"])
+      options_hash["price_min"] = convert_price(r["estimated_cost_cents_min"]).floor
+      options_hash["price_max"] = convert_price(r["estimated_cost_cents_max"]).ceil
       @eta_response["eta_estimates"].each do |e|
         if e["ride_type"] == r["ride_type"]
           e["eta_seconds"] ? options_hash["pickup_eta"] = convert_time(e["eta_seconds"]) : options_hash["pickup_eta"] =  "No cars available"
