@@ -1,0 +1,349 @@
+swagger: '2.0'
+info:
+  title: FareFairy
+  description: Helping you get there fast
+  version: "1.0.0"
+# the domain of the service
+host: farefairy.herokuapp.com
+# array of all schemes that your API supports
+schemes:
+  - http
+# will be prefixed to all paths
+basePath: /v1
+produces:
+  - application/json
+paths:
+  /fares:
+    get:
+      summary: This is where the magic happens
+      description: |
+        FareFairy works with the Rider app to call the APIs of Uber, Lyft, Taxi Fare Finder and Google Transit
+        to return several transportation options to the user. FareFairy first translates the addresses into
+        latitude and longitude through Google GeoLocator. Fares is the controller that collects all this
+        information and sends it through as a single API call to Rider.
+      parameters:
+        - name: origin
+          in: query
+          description: starting address
+          required: true
+          type: string
+          format: double
+        - name: destination
+          in: query
+          description: ending address
+          required: true
+          type: string
+          format: double
+      tags:
+        - Fares
+      responses:
+        200:
+          description: An array of transportation options
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Fares'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /users:
+    post:
+      summary: The API can create users
+      description: |
+        FareFairy will work without signing in, but users are able to create accounts in order to save common locations to the database--speeding up response time.
+      parameters:
+        - name: email_address
+          in: query
+          description: unique email address
+          required: true
+          type: string
+          format: double
+        - name: password
+          in: query
+          description: encrypted password
+          required: true
+          type: string
+          format: double
+      tags:
+        - Users
+      responses:
+        200:
+          description: User can successfully be created
+          schema:
+            type: boolean
+            items:
+              $ref: '#/definitions/Users'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    patch:
+      summary: The API can create users
+      description: |
+        FareFairy will work without signing in, but users are able to create accounts in order to save common locations to the database--speeding up response time.
+      parameters:
+        - name: email_address
+          in: query
+          description: unique email address
+          required: true
+          type: string
+          format: double
+        - name: password
+          in: query
+          description: encrypted password
+          required: true
+          type: string
+          format: double
+        - name: token
+          in: query
+          description: token assigned by FareFairy
+          required: true
+          type: string
+          format: double
+      tags:
+        - Users
+      responses:
+        200:
+          description: User can successfully be created
+          schema:
+            type: boolean
+            items:
+              $ref: '#/definitions/Users'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /sessions:
+    post:
+      summary: Users can log in
+      description: FareFairy users can create an account. The first step of this, of course, is logging in.
+      parameters:
+        - name: email_address
+          in: query
+          description: unique email address
+          required: true
+          type: string
+          format: double
+        - name: password
+          in: query
+          description: encrypted password
+          required: true
+          type: string
+          format: double
+      tags:
+        - Sessions
+      responses:
+        200:
+          description: User can successfully log in
+          schema:
+            type: boolean
+            items:
+              $ref: '#/definitions/Sessions'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    delete:
+      summary: Users can log out
+      description: The front-end app destroys the token when the session has ended or the user logs out.
+      parameters:
+        - name: token
+          in: query
+          description: token for validation
+          required: true
+          type: string
+          format: double
+      responses:
+        200:
+          description: User can successfully log in
+          schema:
+            type: boolean
+            items:
+              $ref: '#/definitions/Sessions'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /favorites:
+    get:
+      summary: Get'cher favorites here
+      description: Users can store favorite addresses in the database to speed the app up by skipping an API call.
+      parameters:
+        - name: user_token
+          in: query
+          description: token for validation
+          required: true
+          type: string
+          format: double
+      tags:
+        - Favorites
+      responses:
+        200:
+          description: An array of favorite addresses
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Favorites'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Save your favorites
+      description: Users can store addresses by name in the database.
+      parameters:
+        - name: name
+          in: query
+          description: name of favorite location
+          required: true
+          type: string
+          format: double
+        - name: address
+          in: query
+          description: address of favorite location
+          required: true
+          type: string
+          format: double
+        - name: token
+          in: query
+          description: token for validation
+          required: true
+          type: string
+          format: double
+      responses:
+        200:
+          description: An array of favorite addresses
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Favorites'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    patch:
+      summary: Update your favorites
+      description: Users can access addresses in the database by name to update them.
+      parameters:
+        - name: id
+          in: query
+          description: user id
+          required: true
+          type: string
+          format: double
+        - name: name
+          in: query
+          description: name of favorite location
+          required: true
+          type: string
+          format: double
+        - name: address
+          in: query
+          description: address of favorite location
+          required: true
+          type: string
+          format: double
+        - name: token
+          in: query
+          description: token for validation
+          required: true
+          type: string
+          format: double
+      responses:
+        200:
+          description: Record successfully updated
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Favorites'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    delete:
+      summary: Delete a favorite
+      description: Don't like to go to the ballpark anymore? No problem.
+      parameters:
+        - name: id
+          in: query
+          description: user id
+          required: true
+          type: string
+          format: double
+        - name: token
+          in: query
+          description: token for validation
+          required: true
+          type: string
+          format: double
+      responses:
+        200:
+          description: Record successfully updated
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Favorites'
+        default:
+         description: Unexpected error
+         schema:
+          $ref: '#/definitions/Error'
+definitions:
+  Fares:
+    type: object
+    properties:
+      origin:
+        type: string
+        description: The user-inputted starting address that will be fed through the four APIs
+      destination:
+        type: string
+        description: The user-inputted ending address that will be fed through the four APIs
+  Users:
+    type: object
+    properties:
+      email_address:
+        type: string
+        description: Users's unique email address
+      password:
+        type: string
+        description: Encrypted password
+      token:
+        type: string
+        description: Token created by FareFairy to validate users
+  Sessions:
+    type: object
+    properties:
+      email_address:
+        type: string
+        description: Users's unique email address
+      password:
+        type: string
+        description: Encrypted password
+      token:
+        type: string
+        description: Token created by FareFairy to validate users
+  Favorites:
+    type: object
+    properties:
+      token:
+        type: string
+        description: Token created by FareFairy to validate users
+      name:
+        type: string
+        description: Name of favorite location
+      address:
+        type: string
+        description: Address of favorite location
+      id:
+        type: string
+        description: User ID
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string
