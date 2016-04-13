@@ -28,12 +28,12 @@ class LyftTest < ActiveSupport::TestCase
 
   test "price_min" do
     l = Lyft.new
-    assert_equal 7.14, l.price_min
+    assert_equal 7, l.price_min
   end
 
   test "assert price max" do
     l = Lyft.new
-    assert_equal 19.51, l.price_max
+    assert_equal 20, l.price_max
   end
 
   test "assert ride ETA" do
@@ -52,7 +52,7 @@ class LyftTest < ActiveSupport::TestCase
     assert_equal 20, l.options[0]["total_eta"]
     assert_equal 6, l.options[0]["pickup_eta"]
     assert_equal 14, l.options[1]["transit_time"]
-    assert_equal 7.14, l.options[2]["price_max"]
+    assert_equal 8, l.options[2]["price_max"]
   end
 
   # test "can get start journey URL" do
