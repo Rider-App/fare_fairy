@@ -1,0 +1,547 @@
+swagger: '2.0'
+info:
+  title: FareFairy
+  description: The API powering the Rider app. Because everyone needs options. See it in action at https://rider-app.firebaseapp.com/#/.
+  version: "1.0.0"
+# the domain of the service
+host: farefairy.herokuapp.com
+# array of all schemes that your API supports
+schemes:
+  - http
+# will be prefixed to all paths
+basePath: /api/v1
+consumes:
+  - application/x-www-form-urlencoded
+produces:
+  - application/json
+
+paths:
+
+  /fares:
+    get:
+      summary: This is where the magic happens
+      description: |
+        FareFairy works with the Rider app to call the APIs of Uber, Lyft, Taxi Fare Finder and Google Transit
+        to return several transportation options to the user. FareFairy first translates the addresses into
+        latitude and longitude through Google GeoLocator. Fares is the controller that collects all this
+        information and sends it through as a single API call to Rider.
+      parameters:
+        - name: origin
+          in: query
+          description: starting address
+          required: true
+          type: string
+          format: double
+        - name: destination
+          in: query
+          description: ending address
+          required: true
+          type: string
+          format: double
+      tags:
+        - Fares
+      responses:
+        200:
+          description: An array of transportation options
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Fares'
+        400:
+          description: Bad Request
+          schema:
+            type: integer
+            items:
+              $ref: '#/definitions/Error'
+        404:
+          description: Not Found
+          schema:
+            type: integer
+            items:
+              $ref: '#/definitions/Error'
+        500:
+          description: Internal Server Error
+          schema:
+            type: integer
+            items:
+              $ref: '#/definitions/Error'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+  /users:
+    post:
+      summary: The API can create users
+      description: |
+        FareFairy will work without signing in, but users are able to create accounts in order to save common locations to the database--speeding up response time.
+      parameters:
+        - name: email_address
+          in: query
+          description: unique email address
+          required: true
+          type: string
+          format: double
+        - name: password
+          in: query
+          description: encrypted password
+          required: true
+          type: string
+          format: double
+      tags:
+        - Users
+      responses:
+        200:
+          description: An array of user objects
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/UsersPost'
+        400:
+          description: Bad Request
+          schema:
+            type: integer
+            items:
+              $ref: '#/definitions/Error'
+        404:
+          description: Not Found
+          schema:
+            type: integer
+            items:
+              $ref: '#/definitions/Error'
+        500:
+          description: Internal Server Error
+          schema:
+            type: integer
+            items:
+              $ref: '#/definitions/Error'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+    patch:
+      summary: The API can update users
+      description: |
+        Users can update profiles and add favorites.
+      parameters:
+        - name: email_address
+          in: query
+          description: unique email address
+          required: true
+          type: string
+          format: double
+        - name: password
+          in: query
+          description: encrypted password
+          required: true
+          type: string
+          format: double
+        - name: token
+          in: query
+          description: token assigned by FareFairy
+          required: true
+          type: string
+          format: double
+      tags:
+        - Users
+      responses:
+        200:
+          description: An array of user objects.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/UsersPatch'
+        400:
+          description: Bad Request
+          schema:
+            type: integer
+            items:
+              $ref: '#/definitions/Error'
+        404:
+          description: Not Found
+          schema:
+            type: integer
+            items:
+              $ref: '#/definitions/Error'
+        500:
+          description: Internal Server Error
+          schema:
+            type: integer
+            items:
+              $ref: '#/definitions/Error'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+  /sessions:
+    post:
+      summary: Users can log in
+      description: FareFairy users can create an account. The first step of this, of course, is logging in.
+      parameters:
+        - name: email_address
+          in: query
+          description: unique email address
+          required: true
+          type: string
+          format: double
+        - name: password
+          in: query
+          description: encrypted password
+          required: true
+          type: string
+          format: double
+      tags:
+        - Sessions
+      responses:
+        200:
+          description: And array of user objects
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Sessions'
+        400:
+          description: Bad Request
+          schema:
+            type: integer
+            items:
+              $ref: '#/definitions/Error'
+        404:
+          description: Not Found
+          schema:
+            type: integer
+            items:
+              $ref: '#/definitions/Error'
+        500:
+          description: Internal Server Error
+          schema:
+            type: integer
+            items:
+              $ref: '#/definitions/Error'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+    delete:
+      summary: Users can log out
+      description: The front-end app destroys the token when the session has ended or the user logs out.
+      parameters:
+        - name: token
+          in: query
+          description: token for validation
+          required: true
+          type: string
+          format: double
+      tags:
+        - Sessions
+      responses:
+        200:
+          description: An array of user objects
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Sessions'
+        400:
+          description: Bad Request
+          schema:
+            type: integer
+            items:
+              $ref: '#/definitions/Error'
+        404:
+          description: Not Found
+          schema:
+            type: integer
+            items:
+              $ref: '#/definitions/Error'
+        500:
+          description: Internal Server Error
+          schema:
+            type: integer
+            items:
+              $ref: '#/definitions/Error'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+  /favorites:
+    get:
+      summary: Get'cher favorites here
+      description: Users can see their list of favorites in the database
+      parameters:
+        - name: user_token
+          in: query
+          description: token for validation
+          required: true
+          type: string
+          format: double
+      tags:
+        - Favorites
+      responses:
+        200:
+          description: An array of user objects
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Favorites'
+        400:
+          description: Bad Request
+          schema:
+            type: integer
+            items:
+              $ref: '#/definitions/Error'
+        404:
+          description: Not Found
+          schema:
+            type: integer
+            items:
+              $ref: '#/definitions/Error'
+        500:
+          description: Internal Server Error
+          schema:
+            type: integer
+            items:
+              $ref: '#/definitions/Error'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+    post:
+      summary: Save your favorites
+      description: Users can store addresses by name in the database--speeding up the performance by cutting down API calls.
+      parameters:
+        - name: name
+          in: query
+          description: name of favorite location
+          required: true
+          type: string
+          format: double
+        - name: address
+          in: query
+          description: address of favorite location
+          required: true
+          type: string
+          format: double
+        - name: token
+          in: query
+          description: token for validation
+          required: true
+          type: string
+          format: double
+      tags:
+        - Favorites
+      responses:
+        200:
+          description: Save successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Favorites'
+        400:
+          description: Bad Request
+          schema:
+            type: integer
+            items:
+              $ref: '#/definitions/Error'
+        404:
+          description: Not Found
+          schema:
+            type: integer
+            items:
+              $ref: '#/definitions/Error'
+        500:
+          description: Internal Server Error
+          schema:
+            type: integer
+            items:
+              $ref: '#/definitions/Error'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+    patch:
+      summary: Update your favorites
+      description: Users can update a list of favorites.
+      parameters:
+        - name: id
+          in: query
+          description: user id
+          required: true
+          type: string
+          format: double
+        - name: name
+          in: query
+          description: name of favorite location
+          required: true
+          type: string
+          format: double
+        - name: address
+          in: query
+          description: address of favorite location
+          required: true
+          type: string
+          format: double
+        - name: token
+          in: query
+          description: token for validation
+          required: true
+          type: string
+          format: double
+      tags:
+        - Favorites
+      responses:
+        200:
+          description: Favorite successfully updated
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Favorites'
+        400:
+          description: Bad Request
+          schema:
+            type: integer
+            items:
+              $ref: '#/definitions/Error'
+        404:
+          description: Not Found
+          schema:
+            type: integer
+            items:
+              $ref: '#/definitions/Error'
+        500:
+          description: Internal Server Error
+          schema:
+            type: integer
+            items:
+              $ref: '#/definitions/Error'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+    delete:
+      summary: Delete a favorite
+      description: Don't like to go to the ballpark anymore? No problem.
+      parameters:
+        - name: id
+          in: query
+          description: user id
+          required: true
+          type: string
+          format: double
+        - name: token
+          in: query
+          description: token for validation
+          required: true
+          type: string
+          format: double
+      tags:
+        - Favorites
+      responses:
+        200:
+          description: Favorite successfully deleted
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Favorites'
+        400:
+          description: Bad Request
+          schema:
+            type: integer
+            items:
+              $ref: '#/definitions/Error'
+        404:
+          description: Not Found
+          schema:
+            type: integer
+            items:
+              $ref: '#/definitions/Error'
+        500:
+          description: Internal Server Error
+          schema:
+            type: integer
+            items:
+              $ref: '#/definitions/Error'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+definitions:
+
+  Fares:
+    type: object
+    properties:
+      origin:
+        type: string
+        description: The user-inputted starting address that will be fed through the four APIs
+      destination:
+        type: string
+        description: The user-inputted ending address that will be fed through the four APIs
+
+  UsersPost:
+    type: object
+    properties:
+      email_address:
+        type: string
+        description: Users's unique email address
+      password:
+        type: string
+        description: Encrypted password
+
+  UsersPatch:
+    type: object
+    properties:
+      email_address:
+        type: string
+        description: Users's unique email address
+      password:
+        type: string
+        description: Encrypted password
+      token:
+        type: string
+        description: Token created by FareFairy to validate users
+
+  Sessions:
+    type: object
+    properties:
+      email_address:
+        type: string
+        description: Users's unique email address
+      password:
+        type: string
+        description: Encrypted password
+      token:
+        type: string
+        description: Token created by FareFairy to validate users
+
+  Favorites:
+    type: object
+    properties:
+      token:
+        type: string
+        description: Token created by FareFairy to validate users
+      name:
+        type: string
+        description: Name of favorite location
+      address:
+        type: string
+        description: Address of favorite location
+      id:
+        type: string
+        description: User ID
+
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string

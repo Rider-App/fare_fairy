@@ -1,0 +1,109 @@
+
+
+USER STORIES as focus of presentation
+
+nikki: problem
+tell story "and this is where RiderApp comes in "
+
+jim: mechanics
+explain app (mechanics of using it--click this and get this info), four APIs user can enter starting location and calls are made to Uber, Lyft, Google Transit and Taxi FareFinder
+we return results with time and cost of transportation
+
+kevin: app pages
+(how user can get from our app to Uber) from there, users can call Uber, get a taxi, whatever they're feeling. talk about each page
+
+jefferson: accounts
+talk about user accounts and favorites
+
+AND THIS IS HOW WE DID IT
+
+kate: tech
+this is built with a rails backend and it calls all the APIs from which we return a single API for the FE
+
+alex: design
+talks about design decisions
+
+
+WHAT WE DO
+
+Fare Fairy powers the Rider app, an Angular app that gives you information from the Uber, Lyft, Taxi Fare Finder and Google Transit APIs all at once. The Fare Fairy takes starting and destination addresses, converts them into latitude and longitude, asks each of the APIs their estimates for time and cost, then reports back to Rider. Because she's helpful like that.
+
+This app served as the final project of Cohort 6 at The Iron Yard. If you want more information or access to the API, feel free to contact any of the team members below.
+
+CTA BUTTON: SEE RIDER IN ACTION
+
+Alexander Allis
+  Advertising Agency Ex-Pat
+  Front-End Engineering
+
+Nicole Cadavillo
+  Whiskey in a Teacup
+  Front-End Engineering
+
+Jefferson Neel
+  Banks, Beets, Battlestar Galactica
+  Ruby on Rails
+
+Jim Publicover
+  Programmer & Grammar Pro
+  Ruby on Rails
+
+Kevin Scott
+  R&D Process Engineer Turned Programmer
+  Factory to Keyboard
+  Mechanical Engineer => Software Engineer
+  His Style Has No Father
+  Left Research for Development
+  Factory Line to Code Lines
+  The Theodore Swann of Code
+
+
+
+  Ruby on Rails
+
+Kate Studwell
+  Project Manager, Dancer & Brunch Specialist
+  Ruby on Rails
+
+
+
+many loose things
+
+
+maybe make FareFairy real, add real documentation
+describe endpoints and such
+  how authentication works
+
+doc standards
+  there's a gem SWAGGER
+
+
+
+
+
+
+
+
+  module Api
+      module V1
+      class FavoritesController < ApplicationController
+        before_action :set_user
+        before_action :authenticate_user_favorite, only: [:update, :destroy]
+
+          respond_to :json
+
+            swagger_controller :favorites, 'Favorites'
+
+            swagger_api :index do
+              summary 'Returns all posts'
+              notes 'Notes...'
+            end
+
+
+
+
+
+
+
+
+  #
