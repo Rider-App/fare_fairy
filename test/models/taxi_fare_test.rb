@@ -22,11 +22,6 @@ class TaxiFareTest < ActiveSupport::TestCase
     assert_equal "Taxi", tf.travel_type
   end
 
-  test "can get nearest city" do
-    tf = TaxiFare.new
-    assert_equal "Boston", tf.entity_handle
-  end
-
   test "can get total fare" do
     tf = TaxiFare.new
     assert_equal 29, tf.total_fare
@@ -44,12 +39,12 @@ class TaxiFareTest < ActiveSupport::TestCase
 
   test "can get price min" do
     tf = TaxiFare.new
-    assert_equal 23.57, tf.price_min
+    assert_equal 23, tf.price_min
   end
 
   test "can get price max" do
     tf = TaxiFare.new
-    assert_equal 27.11, tf.price_max
+    assert_equal 28, tf.price_max
   end
 
   test "can get eta" do
@@ -64,7 +59,7 @@ class TaxiFareTest < ActiveSupport::TestCase
 
   test "can get options hash" do
     tf = TaxiFare.new
-    assert_equal [{"ride_name"=>"Local taxi", "price_min"=> 23.57, "price_max"=> 27.11, "eta_estimates"=> "N/A", "transit_time"=> "N/A", "pickup_eta"=>"N/A"}], tf.options
+    assert_equal [{"ride_name"=>"Local taxi", "price_min"=> 23, "price_max"=> 28, "eta_estimates"=> "N/A", "transit_time"=> "N/A", "pickup_eta"=>"N/A"}], tf.options
   end
 
   test "can get one taxi co name and number" do
