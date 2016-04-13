@@ -54,7 +54,7 @@ class GoogleTransit < Transit
       options_hash["short_name"] = t["transit_details"]["line"]["short_name"]
       options_hash["price_min"] = price_min
       options_hash["price_max"] = price_max
-      options_hash["pickup_eta"] = ((departure_time(i).to_time - Time.now) / 60).round
+      options_hash["pickup_eta"] = ((departure_time(i).to_time.utc - Time.now.utc) / 60).round
       options_hash["transit_time"] = (t["duration"]["value"] / 60.0).round
       options_hash["total_eta"] = eta
 
