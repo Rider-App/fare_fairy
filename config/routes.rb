@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  # get '/api' => redirect('/swagger/dist/index.html?url=/apidocs/api-docs.json')
+
   get 'fares/show', defaults: {format: 'json'}
   root 'fares#show', defaults: {format: 'json'}
   get 'homes/show'
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
   post 'api/v1/users' => 'users#create'
   patch 'api/v1/users' => 'users#update'
   post 'api/v1/login' => 'sessions#create'
-  delete 'api/v1/logout' => 'sessions#destroy'  
+  delete 'api/v1/logout' => 'sessions#destroy'
   get 'api/v1/favorites' => 'favorites#show', defaults: {format: 'json'}
   post 'api/v1/favorites' => 'favorites#create'
   patch 'api/v1/favorites/:id' => 'favorites#update'
