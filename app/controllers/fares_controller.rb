@@ -24,4 +24,5 @@ class FaresController < ApplicationController
     @transit = transit
     @taxis = taxis
   end
+
 end
