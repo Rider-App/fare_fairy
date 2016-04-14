@@ -21,6 +21,10 @@ class Uber < Transit
     "https://m.uber.com/sign-up?client_id=#{ENV["UBER_CLIENT_ID"]}"
   end
 
+  def android_app_url
+    "https://m.uber.com/sign-up?client_id=#{ENV["UBER_CLIENT_ID"]}"
+  end
+
   def price_min
     return super unless valid?
     min_array=[]
