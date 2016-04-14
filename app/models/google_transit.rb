@@ -44,7 +44,7 @@ class GoogleTransit < Transit
   end
 
   def ride_name
-    options[0]["ride_name"]
+    options[0]["ride_name"] if options[0]
   end
 
   def options
