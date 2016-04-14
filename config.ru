@@ -4,7 +4,8 @@ require 'rack'
 require 'rack/cors'
 use Rack::Cors do
   allow do
-    origins 'rider-app.firebaseapp.com', 'localhost:3000', 'localhost:3001'
+    # origins 'rider-app.firebaseapp.com', 'localhost:3000', 'localhost:3001'
+    origins '*'
     resource '*', :headers => :any, :methods => [:get, :post, :delete, :patch]
   end
 end
