@@ -21,6 +21,9 @@ module FareFairy
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.active_job.queue_adapter = :delayed_job
+    config.autoload_paths << Rails.root.join('app/jobs')
+
     config.active_record.raise_in_transactional_callbacks = true
 
     config.middleware.insert_before 0, "Rack::Cors" do
@@ -29,6 +32,6 @@ module FareFairy
         resource '*', :headers => :any, :methods => [:get, :post, :options]
       end
     end
-    
+
   end
 end
