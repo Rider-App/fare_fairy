@@ -950,7 +950,7 @@
 }
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.delete div.heading {
   background-color: #d6c2cd;
-  border: 1px solid #e8c6c7;
+  border: 1px solid #d6c2cd;
 }
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.delete div.heading h3 span.http_method a {
   text-transform: uppercase;
@@ -976,7 +976,7 @@
 }
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.post div.heading {
   background-color: #81afd9;
-  border: 1px solid #c3e8d1;
+  border: 1px solid #81afd9;
 }
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.post div.heading h3 span.http_method a {
   background-color: #5b97ce;
@@ -991,7 +991,7 @@
 }
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.post div.content {
   background-color: #c0d7ec;
-  border: 1px solid #c3e8d1;
+  border: 1px solid #c0d7ec;
 }
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.post div.content h4 {
   color: #132a3f;
@@ -1001,7 +1001,7 @@
 }
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.patch div.heading {
   background-color: #a1cebe;
-  border: 1px solid #F5D5C3;
+  border: 1px solid #a1cebe;
 }
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.patch div.heading h3 span.http_method a {
   background-color: #3c7560;
@@ -1016,7 +1016,7 @@
 }
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.patch div.content {
   background-color: #bcdcd0;
-  border: 1px solid #f0cecb;
+  border: 1px solid #bcdcd0;
 }
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.patch div.content h4 {
   color: #3f7862;
@@ -1026,7 +1026,7 @@
 }
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.get div.heading {
   background-color: #c9d8e4;
-  border: 1px solid #c3d9ec;
+  border: 1px solid #c9d8e4;
 }
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.get div.heading h3 span.http_method a {
   background-color: #b1c8d8;
@@ -1041,7 +1041,7 @@
 }
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.get div.content {
   background-color: #ebf3f9;
-  border: 1px solid #c3d9ec;
+  border: 1px solid #ebf3f9;
 }
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.get div.content h4 {
   color: #0f6ab4;
@@ -1066,7 +1066,7 @@
 }
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.options div.content {
   background-color: #ebf3f9;
-  border: 1px solid #c3d9ec;
+  border: 1px solid #ebf3f9;
 }
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.options div.content h4 {
   color: #0f6ab4;
@@ -1137,7 +1137,7 @@
 }
 .swagger-section .swagger-ui-wrap form.form_box {
   background-color: #ebf3f9;
-  border: 1px solid #c3d9ec;
+  border: 1px solid #ebf3f9;
   padding: 10px;
 }
 .swagger-section .swagger-ui-wrap form.form_box label {

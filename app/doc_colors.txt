@@ -1,0 +1,20 @@
+this is all happening in the public folder
+
+key:
+{ACTION} Primary Color (line that begins code in screen.css)
+button color & border color, link text color, background color, dropbox color
+PARENS: line in screen.css to change
+the borders on the boxes is the button color--i left it out
+  because it's the line following the box color
+
+GET b1c8d8 (1031)
+c9d8e4 (1027), 152029 (1039), ebf3f9 (1077), 0f6ab4 (1046)
+
+PATCH 3c7560 (1006)
+a1cebe (1002), 0e1b16 (1014), bcdcd0 (1017), 3f7862 (1021)
+
+POST 5b97ce (981)
+81afd9 (977), 09151f (989), c0d7ec (992), 132a3f (996)
+
+DELETE 533747 (957)
+d6c2cd (951), 181015 (964), 181015 (967), 6e495e (971)
