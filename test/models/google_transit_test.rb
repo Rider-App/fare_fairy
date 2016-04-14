@@ -47,7 +47,7 @@ class GoogleTransitTest < ActiveSupport::TestCase
 
   test "can get departure time" do
     g = GoogleTransit.new
-    assert_equal "3:12PM".to_time, g.departure_time
+    assert_equal Time.at(1459969920).utc, g.departure_time
   end
 
 
