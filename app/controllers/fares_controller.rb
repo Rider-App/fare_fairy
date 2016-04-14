@@ -13,7 +13,7 @@ class FaresController < ApplicationController
 
     bus = GoogleTransit.new(origin, destination, "subway")
     if bus.valid?
-      transit << bus
+      transit << bus if bus.includes_transit_options?
       subway = GoogleTransit.new(origin, destination, "bus")
       transit << subway unless subway.ride_name == bus.ride_name && subway.travel_type == bus.travel_type
     end
