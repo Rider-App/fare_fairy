@@ -1,8 +1,9 @@
 class AccountMailer < ApplicationMailer
 
-  def forgot_password(address)
+  def forgot_password(token)
     @greeting = "Hi"
+    @token = token
 
-    mail to: address, subject: "Updates to your Rider Account"
+    mail to: 'katestudwell@gmail.com', subject: "Updates to your Rider Account"
   end
 end

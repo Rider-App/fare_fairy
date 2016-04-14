@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :forgot_password]
 
   def show
   end
@@ -14,7 +14,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      EmailSenderJob.perform_later
       render :show, status: :created, location: @user
     else
       render json: @user.errors, status: :unprocessable_entity
@@ -33,6 +32,10 @@ class UsersController < ApplicationController
     else
       render json: @user.errors, status: :unprocessable_entity
     end
+  end
+
+  def forgot_password
+    EmailSenderJob.perform_later(@token)
   end
 
   private
