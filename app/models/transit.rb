@@ -14,7 +14,7 @@ class Transit
   end
 
   def eta
-    nil
+    "N/A"
   end
 
   def special_considerations
