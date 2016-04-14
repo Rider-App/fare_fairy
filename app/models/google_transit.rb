@@ -10,6 +10,11 @@ class GoogleTransit < Transit
     @response["status"] == "OK"
   end
 
+  def includes_transit_options?
+    !transit_modes.empty?
+  end
+
+
   def start_journey_url
     origin = @origin.gsub(" ", "+")
     destination = @destination.gsub(" ", "+")
