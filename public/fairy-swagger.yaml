@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   title: FareFairy
-  description: The API powering the Rider app. Because everyone needs options. See it in action at https://rider-app.firebaseapp.com/#/.
+  description: The API powering the Rider app. Because everyone needs options. See it in action at http://riderapp.us.
   version: "1.0.0"
 # the domain of the service
 host: farefairy.herokuapp.com

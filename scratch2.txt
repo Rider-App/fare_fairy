@@ -1,0 +1,32 @@
+Rider
+riderapp.us => https://rider-app.firebaseapp.com/#/
+
+powered by
+FareFairy
+http://farefairy.herokuapp.com/
+
+Team in alphabetical order:
+Alexander Allis
+Nicky Cadavillo
+Jefferson Neel
+Lenora Neel
+Jim Publicover
+Kevin Scott
+Kate Studwell
+
+Your commute is usually about 20 minutes, but your train has stopped at the
+next station for no reason. Again. Fuckin' Chicago. You get off and have to
+formulate a plan of attack by the time you walk up the stairs. How are you
+getting to work?
+
+Ask Rider. It gives you the cost and estimated time of all your transportation
+options.
+
+Rider is a mobile-first Angular app that pulls information from Uber, Lyft,
+GoogleTransit and Taxi Fare Finder to give you the fastest (or cheapest) route
+to wherever you're going. It's powered by FareFairy, the (fully documented)
+custom API that calls each transportation API individually and returns the
+information to the front end as a single object. Each session generates a Google
+Map of your route above your results, so you're in the know as soon as you
+click go. Users can log in if they want to keep a list of favorite locations,
+but no one needs credentials to use it. 
