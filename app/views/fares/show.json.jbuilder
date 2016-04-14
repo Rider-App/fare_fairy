@@ -28,7 +28,9 @@ json.ride_sharing @ride_sharing do |o|
   end
 
   json.start_journey_url o.start_journey_url
-  json.download_app_url o.iphone_app_url
+  json.iphone_app_url o.iphone_app_url
+  json.android_app_url o.android_app_url
+
 
 
 end
