@@ -1,9 +1,8 @@
 class AccountMailer < ApplicationMailer
 
-  def forgot_password(token)
-    @greeting = "Hi"
-    @token = token
+  def forgot_password(email, token)
+    @password_reset_link = "http://rider-app.firebaseapp.com/#/password_reset/?token=#{token}"
 
-    mail to: 'katestudwell@gmail.com', subject: "Updates to your Rider Account"
+    mail to: email, subject: "Updates to your Rider Account"
   end
 end

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_forgetful_user, only: :forgot_password
 
   def show
   end
@@ -35,7 +36,7 @@ class UsersController < ApplicationController
   end
 
   def forgot_password
-    EmailSenderJob.perform_later(@token)
+    EmailSenderJob.perform_later(@email, @token)
     render json: {status: :email_sent}
   end
 
@@ -62,7 +63,9 @@ class UsersController < ApplicationController
         user = User.where("email = ?", email).first
         if user
           @user = user
-          @token = @user.session_tokens.last.token
+          @email = email
+          user.assign_token
+          @token = user.session_tokens.last.token
         else
           render json: {status: :invalid_email}
         end
