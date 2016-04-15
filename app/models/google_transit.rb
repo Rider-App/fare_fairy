@@ -10,6 +10,11 @@ class GoogleTransit < Transit
     @response["status"] == "OK"
   end
 
+  def has_details
+    valid?
+  end
+
+
   def includes_transit_options?
     !transit_modes.empty?
   end

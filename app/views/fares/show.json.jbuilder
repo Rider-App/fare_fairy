@@ -39,6 +39,7 @@ end
 json.transit @transit do |o|
 
   json.travel_type o.travel_type
+  json.has_details o.has_details
   json.price_min o.price_min
   json.price_max o.price_max
   json.eta o.eta
