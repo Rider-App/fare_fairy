@@ -17,6 +17,10 @@ class Uber < Transit
     "Uber"
   end
 
+  def has_details
+    valid?
+  end
+
   def iphone_app_url
     "https://m.uber.com/sign-up?client_id=#{ENV["UBER_CLIENT_ID"]}"
   end

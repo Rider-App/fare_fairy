@@ -29,6 +29,10 @@ class Lyft < Transit
     "Lyft"
   end
 
+  def has_details
+    valid?
+  end
+
   def iphone_app_url
     "https://itunes.apple.com/us/app/lyft-taxi-bus-app-alternative/id529379082"
   end

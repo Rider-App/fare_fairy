@@ -5,6 +5,10 @@ class Transit
     @travel_type = travel_type
   end
 
+  def has_details
+    false
+  end
+
   def price_min
     nil
   end

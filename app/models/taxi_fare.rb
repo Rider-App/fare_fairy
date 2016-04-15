@@ -21,6 +21,10 @@ class TaxiFare < Transit
     "Taxi"
   end
 
+  def has_details
+    valid?
+  end
+
   def convert_distance(meters)
     (meters * 0.000621371).round(2)
   end
