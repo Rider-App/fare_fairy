@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
       @token = SessionToken.create(user_id: @user.id, token: SecureRandom.hex)
-      render template: 'users/show', status: :ok, location: @user
+      render 'users/show.json.jbuilder', status: :ok, location: @user
     else
       render json: {status: "Invalid credentials"}
     end

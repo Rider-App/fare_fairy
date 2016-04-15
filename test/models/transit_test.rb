@@ -20,7 +20,7 @@ class TransitTest < ActiveSupport::TestCase
 
   test "can get eta" do
     t = Transit.new
-    assert_equal nil, t.eta
+    assert_equal "N/A", t.eta
   end
 
   test "can get special considerations" do

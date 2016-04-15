@@ -10,6 +10,11 @@ class GoogleTransit < Transit
     @response["status"] == "OK"
   end
 
+  def includes_transit_options?
+    !transit_modes.empty?
+  end
+
+
   def start_journey_url
     origin = @origin.gsub(" ", "+")
     destination = @destination.gsub(" ", "+")
@@ -39,11 +44,12 @@ class GoogleTransit < Transit
   end
 
   def departure_time(index = 0)
-    transit_modes[index]["transit_details"]["departure_time"]["text"].to_time
+    time = transit_modes[index]["transit_details"]["departure_time"]["value"]
+    Time.at(time).utc
   end
 
   def ride_name
-    options[0]["ride_name"]
+    options[0]["ride_name"] if options[0]
   end
 
   def options
@@ -54,7 +60,7 @@ class GoogleTransit < Transit
       options_hash["short_name"] = t["transit_details"]["line"]["short_name"]
       options_hash["price_min"] = price_min
       options_hash["price_max"] = price_max
-      options_hash["pickup_eta"] = ((departure_time(i).to_time - Time.now) / 60).round
+      options_hash["pickup_eta"] = ((departure_time(i) - Time.now.utc) / 60).round
       options_hash["transit_time"] = (t["duration"]["value"] / 60.0).round
       options_hash["total_eta"] = eta
 

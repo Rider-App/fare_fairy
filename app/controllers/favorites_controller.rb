@@ -26,7 +26,7 @@ class FavoritesController < ApplicationController
 
   def update
     if @favorite.update(favorite_params) && @favorite.user == @user
-      render :show, status: :ok, location: @favorite
+      render 'show.json.jbuilder', status: :ok, location: @favorite
     else
       render json: @favorite.errors, status: :unprocessable_entity
     end

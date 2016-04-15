@@ -2,6 +2,10 @@ json.results do
 
   json.origin_address @rate_rider.origin_address
   json.destination_address @rate_rider.destination_address
+  json.origin_lat @rate_rider.start_lat.to_f
+  json.origin_lng @rate_rider.start_lng.to_f
+  json.destination_lat @rate_rider.end_lat.to_f
+  json.destination_lng @rate_rider.end_lng.to_f
   # need distance
   # need overview map
 
@@ -24,7 +28,9 @@ json.ride_sharing @ride_sharing do |o|
   end
 
   json.start_journey_url o.start_journey_url
-  json.download_app_url o.iphone_app_url
+  json.iphone_app_url o.iphone_app_url
+  json.android_app_url o.android_app_url
+
 
 
 end
