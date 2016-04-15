@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
   validates :password, presence: true
   after_create :assign_token
 
-  protected
 
   def assign_token
     SessionToken.create(user_id: id, token: SecureRandom.hex)

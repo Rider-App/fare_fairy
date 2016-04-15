@@ -17,7 +17,7 @@ class FaresController < ApplicationController
       subway = GoogleTransit.new(origin, destination, "bus")
       transit << subway unless subway.ride_name == bus.ride_name && subway.travel_type == bus.travel_type
     else
-      transit << Transit.new("Transit")  
+      transit << Transit.new("Transit")
     end
 
     taxis << TaxiFare.new(@rate_rider.start_lat, @rate_rider.start_lng, @rate_rider.end_lat, @rate_rider.end_lng, @rate_rider.origin_city, @rate_rider.origin_state )
