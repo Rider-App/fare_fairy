@@ -45,7 +45,8 @@ class GoogleTransit < Transit
   end
 
   def eta
-    (@response["routes"][0]["legs"][0]["duration"]["value"] / 60.0).round
+    @eta = (@response["routes"][0]["legs"][0]["duration"]["value"] / 60.0).round
+    @eta > 0 ? "#{@eta} min" : "N/A"
   end
 
   def departure_time(index = 0)
@@ -67,7 +68,7 @@ class GoogleTransit < Transit
       options_hash["price_max"] = price_max
       options_hash["pickup_eta"] = ((departure_time(i) - Time.now.utc) / 60).round
       options_hash["transit_time"] = (t["duration"]["value"] / 60.0).round
-      options_hash["total_eta"] = eta
+      options_hash["total_eta"] = @eta
 
       options << options_hash
 
