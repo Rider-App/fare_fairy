@@ -57,6 +57,10 @@ class GoogleTransit < Transit
     options[0]["ride_name"] if options[0]
   end
 
+  def get_distance
+    (@response["routes"][0]["legs"][0]["distance"]["value"] * 0.000621371)
+  end
+
   def options
     options = []
     transit_modes.each_with_index do |t, i|
