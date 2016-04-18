@@ -53,7 +53,7 @@ class Uber < Transit
     return super unless valid?
     etas = self.options.map {|e| e[:total_eta]}
     etas = etas.select {|a| a.class == Fixnum}
-    etas.min
+    etas.min > 0 ? "#{etas.min} min" : "N/A"
   end
 
   def special_considerations
