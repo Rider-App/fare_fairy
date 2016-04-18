@@ -6,6 +6,7 @@ json.results do
   json.origin_lng @rate_rider.start_lng.to_f
   json.destination_lat @rate_rider.end_lat.to_f
   json.destination_lng @rate_rider.end_lng.to_f
+  json.distance @distance
   # need distance
   # need overview map
 
