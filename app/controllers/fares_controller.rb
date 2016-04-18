@@ -12,6 +12,10 @@ class FaresController < ApplicationController
     ride_sharing << Lyft.new(@rate_rider.start_lat, @rate_rider.start_lng, @rate_rider.end_lat, @rate_rider.end_lng)
 
     bus = GoogleTransit.new(origin, destination, "subway")
+
+    #get @distance right here, refer to it in views folder
+    @distance = (bus.get_distance).round(2)
+
     if bus.valid?
       transit << bus if bus.includes_transit_options?
       subway = GoogleTransit.new(origin, destination, "bus")
