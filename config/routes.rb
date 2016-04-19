@@ -19,7 +19,6 @@ Rails.application.routes.draw do
   get 'api/v1/fares' => 'fares#show', defaults: {format: 'json'}
   post 'api/v1/users' => 'users#create'
   patch 'api/v1/users' => 'users#update'
-  get 'api/v1/users/reset' => 'users#forgot_password'  
   post 'api/v1/login' => 'sessions#create'
   delete 'api/v1/logout' => 'sessions#destroy'
   get 'api/v1/favorites' => 'favorites#show', defaults: {format: 'json'}
