@@ -37,6 +37,10 @@ class Transit
     ""
   end
 
+  def get_distance
+    "N/A"
+  end
+
   def options
     [{"ride_name": "",
     "price_min": nil,

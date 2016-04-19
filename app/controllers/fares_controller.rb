@@ -13,8 +13,7 @@ class FaresController < ApplicationController
 
     bus = GoogleTransit.new(origin, destination, "subway")
 
-    #get @distance right here, refer to it in views folder
-    @distance = (bus.get_distance).round(2)
+    @distance = bus.get_distance
 
     if bus.valid?
       transit << bus if bus.includes_transit_options?

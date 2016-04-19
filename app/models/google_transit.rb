@@ -59,7 +59,8 @@ class GoogleTransit < Transit
   end
 
   def get_distance
-    (@response["routes"][0]["legs"][0]["distance"]["value"] * 0.000621371)
+    return super unless valid?
+    (@response["routes"][0]["legs"][0]["distance"]["value"] * 0.000621371).round(2)
   end
 
   def options
