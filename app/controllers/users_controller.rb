@@ -35,11 +35,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def forgot_password
-    EmailSenderJob.perform_later(@email, @token)
-    render json: {status: :email_sent}
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -57,22 +52,6 @@ class UsersController < ApplicationController
       end
     end
 
-    def set_forgetful_user
-      email = params[:email]
-      if email
-        user = User.where("email = ?", email).first
-        if user
-          @user = user
-          @email = email
-          user.assign_token
-          @token = user.session_tokens.last.token
-        else
-          render json: {status: :invalid_email}
-        end
-      else
-        render json: {status: :email_needed}
-      end
-    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:id, :password, :token, :email)
