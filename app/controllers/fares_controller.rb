@@ -11,14 +11,14 @@ class FaresController < ApplicationController
 
     ride_sharing << Lyft.new(@rate_rider.start_lat, @rate_rider.start_lng, @rate_rider.end_lat, @rate_rider.end_lng)
 
-    bus = GoogleTransit.new(origin, destination, "subway")
+    subway = GoogleTransit.new(origin, destination, "subway")
 
-    @distance = bus.get_distance
+    @distance = subway.get_distance
 
-    if bus.valid?
-      transit << bus if bus.includes_transit_options?
-      subway = GoogleTransit.new(origin, destination, "bus")
-      transit << subway unless subway.ride_name == bus.ride_name && subway.travel_type == bus.travel_type
+    if subway.valid?
+      transit << subway if subway.includes_transit_options?
+      bus = GoogleTransit.new(origin, destination, "bus")
+      transit << bus unless subway.ride_name == bus.ride_name && subway.travel_type == bus.travel_type
     else
       transit << Transit.new("Transit")
     end
